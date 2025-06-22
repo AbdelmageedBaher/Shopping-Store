@@ -1,0 +1,33 @@
+import { createBrowserRouter, RouterProvider } from "react-router-dom"
+import Layout from "./components/Layout"
+import Home from './components/Home/Home';
+import About from './components/About/About';
+import Shop from "./components/Shop/Shop";
+import Blog from './components/Blog/Blog';
+import Contact from './components/Contact/Contact';
+import Checkout from './components/Checkout/Checkout';
+import Notfound from './components/Notfound';
+
+
+function App() {
+ 
+  let routes = createBrowserRouter([{
+    path:'/',element:<Layout />,children:[
+      {index:true,element:<Home />},
+      {path:'/about',element:<About />},
+      {path:'/shop',element:<Shop />},
+      {path:'/blog',element:<Blog />},
+      {path:'/contact',element:<Contact />},
+      {path:'/checkout',element:<Checkout />},
+      {path:'*',element:<Notfound />},
+    ]
+  }])
+
+  return (
+   <RouterProvider router={routes}>
+    
+   </RouterProvider>
+  )
+}
+
+export default App
