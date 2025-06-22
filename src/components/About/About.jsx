@@ -1,9 +1,15 @@
-import React from 'react'
+// templates/component/About.js
+
+import React from 'react';
+import  './About.css';
 
 export default function About() {
-  return (
-    <div>
-      about !111111111111111
-    </div>
-  )
-}
+    return(
+
+        <div className='About'>
+          <h1>About component</h1>
+        </div>
+    )
+};
+
+ 

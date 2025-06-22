@@ -1,12 +1,13 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
-import Layout from "./components/Layout"
+import Layout from './components/Layout/Layout';
 import Home from './components/Home/Home';
 import About from './components/About/About';
-import Shop from "./components/Shop/Shop";
+import Shop from './components/Shop/Shop';
 import Blog from './components/Blog/Blog';
 import Contact from './components/Contact/Contact';
 import Checkout from './components/Checkout/Checkout';
-import Notfound from './components/Notfound';
+import Notfound from './components/Notfound/Notfound';
+
 
 
 function App() {
