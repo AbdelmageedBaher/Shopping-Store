@@ -1,7 +1,7 @@
 
 import "./Product.css";
 import StarRatings from "react-star-ratings";
-import useProducts from "../Navbar/useQuerypProducts";
+import useProducts from "../../hooks/useQuerypProducts";
 
 export default function Products() {
   
