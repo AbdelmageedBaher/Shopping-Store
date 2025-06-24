@@ -157,7 +157,7 @@ transform: translate(-50% , -50%);
     top: 15px;
 
     right: -100px;
-    color: var(--dark-color);
+    color: var(--main-color);
     border-radius: 5px;
     border: 1px var(--main-color ) solid;
     overflow: hidden;
@@ -234,9 +234,6 @@ font-weight: 600;
 .Shop .card .card-body > div > button:nth-of-type(2){
     border-radius: 0% 50% 50% 0%;
     background-color: #FFCD00;
-
-}
-.Shop .pagination{
 
 }
 .Shop .pagination span , .Shop .pagination b{
