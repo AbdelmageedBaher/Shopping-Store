@@ -10,13 +10,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.81.2",
     "axios": "^1.10.0",
     "bootstrap": "^5.3.7",
     "generate-react-cli": "^8.4.9",
     "react": "^19.1.0",
     "react-bootstrap": "^2.10.10",
     "react-dom": "^19.1.0",
-    "react-router-dom": "^7.6.2"
+    "react-rating-stars-component": "^2.2.0",
+    "react-router-dom": "^7.6.2",
+    "react-star-ratings": "^2.3.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",
