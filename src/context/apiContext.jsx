@@ -25,8 +25,6 @@ async function GetAllCategories(){
     let {data} = await axios.get(`${url}/categories`) ;
     setAllData(data.products)
     setApiCategories(data)
-    
-    
 }
 
 async function getApiSpacificCategory(CatUrl) {

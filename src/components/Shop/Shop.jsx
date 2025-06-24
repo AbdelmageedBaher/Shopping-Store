@@ -1,4 +1,4 @@
-        import React, { useEffect, useState } from 'react'
+        import React, { useEffect, useRef, useState } from 'react'
         import './Shop.css'
         import { FaChevronRight } from "react-icons/fa6";
         import { FaChevronLeft } from "react-icons/fa6";
@@ -9,9 +9,28 @@
 
         function Shop() {
        
-        
-            
-    const {allData , apiCategories , getApiSpacificCategory , carantPage , setcarantPge , productPrePage , pages , startIndex , finishIndex , orderProducts , generatedPages , pageRefs ,updateActiveClass , handlePageClick , handlePrev , handleNext , showAllData} = useShop()
+          
+          // start-useShop  
+          const { apiCategories , getApiSpacificCategory , carantPage , setcarantPge , pages  , orderProducts , generatedPages , pageRefs  , handlePageClick , handlePrev , handleNext , showAllData} = useShop()
+          // end-useShop  
+
+
+          const checkBoxCat = useRef([])
+
+
+          const changeCheckBox = (index)=>{
+
+            checkBoxCat.current.forEach((ref)=>{
+
+              if(ref) ref.classList.remove("open");
+            })
+            if (checkBoxCat.current[index]) {
+              checkBoxCat.current[index].classList.add("open");
+            }
+          }
+          
+          
+
 
 
 
@@ -32,7 +51,7 @@
         {
         apiCategories.map((el , index)=>(
         <li key={index}>
-        <p onClick={()=> {getApiSpacificCategory(el.url) }} className='p-0 m-0'><span><FaCheckSquare className='check'/></span>{el.name}</p>
+        <p ref={(el) => (checkBoxCat.current[index] = el)} onClick={()=> {getApiSpacificCategory(el.url) , changeCheckBox(index) }} className='p-0 m-0'><span><FaCheckSquare className='check'/></span>{el.name}</p>
         </li>
 
         ))

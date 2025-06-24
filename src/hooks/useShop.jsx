@@ -31,7 +31,7 @@ const[carantPage , setcarantPge] = useState(1)
             if (ref) ref.classList.remove("open");
           });
           if (pageRefs.current[index]) {
-            pageRefs.current[index].classList.add("open");
+            pageRefs.current[index].classList.toggle("open");
           }
   };
   const handlePageClick = (pageNumber, index) => {
