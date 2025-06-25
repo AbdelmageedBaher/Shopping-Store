@@ -1,1 +1,256 @@
-.Shop {}
+.Shop {
+    display: flex;
+    flex-direction: column;
+
+}
+.Shop p{
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--dark-color);
+
+}
+.Shop p span{
+    color: var(--opasty-color);
+    
+}
+.Shop .sidePro{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+}
+.Shop .sidePro > b{
+font-weight: 500;
+color: var(--dark-color);
+}
+.Shop .sidePro > ul{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-transform: capitalize;
+    
+}
+.Shop .sidePro > ul li{
+    list-style: none;
+    
+}
+.Shop .sidePro > ul li p{
+    display: flex;
+    gap: 10px;
+    color: var(--opasty-color);
+    font-size: 13px;
+    position: relative;  
+    cursor: pointer;
+}
+.Shop .sidePro > ul li p small{
+    position: absolute;
+    right: 0;
+    font-size: 14px;
+
+}
+.Shop .sidePro > ul li p span{
+    width: 15px;
+    height: 15px;
+    border-radius: 3px;
+    border: 1px rgba(0, 0, 0, 0.212) solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.Shop .sidePro > ul li p span .check{
+    display: none;
+}
+.Shop .sidePro > ul li p.open span .check{
+    display: block;
+    color: var(--dark-color);
+}
+.Shop .sidePro > ul li p.open {
+    color: var(--dark-color);
+}
+.Shop .price > div{
+color: var(--opasty-color);
+}
+.Shop .price > div label{
+    text-transform: capitalize;
+    font-size: 14px;
+    
+}
+.Shop .price > div input{
+    border: none;
+}
+.Shop .price > div input::placeholder{
+    color: var(--opasty-color);
+
+}
+.Shop .price > span{
+    color: var(--opasty-color);
+}
+.Shop .poster{
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.Shop .poster > img{
+width: 100%;
+}
+
+.Shop .poster > div {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50% , -50%);
+
+}
+.Shop .poster > div p{
+    font-size:24px ;
+    font-weight: 200;
+    color: var(--opasty-color);
+    
+}
+.Shop .poster > div b{
+    font-size:30px ;
+    font-weight: 600;
+    color: var(--dark-color);
+
+}
+.Shop .poster > div b span{
+    color: #00B853;
+
+    
+}
+.Shop .poster > div small{
+    font-size: 12px;
+    color: var(--opasty-color);
+}
+
+.Shop .titleShop{
+
+    font-size: 12px;
+}
+.Shop .titleShop > span{
+    color: var(--opasty-color);
+    
+}
+.Shop .titleShop > p{
+    color: var(--opasty-color);
+}
+.Shop .titleShop > p b{
+    color: var(--dark-color);
+}
+.Shop .card .card-img {
+    cursor: pointer;
+
+}
+.Shop .card {
+    position: relative;
+    overflow: hidden;
+    z-index: 1000;
+}
+.Shop .card:hover .buying{
+
+    right: 15px;
+}
+.Shop .card .buying{
+    position: absolute;
+    transition: 0.5s;
+    top: 15px;
+
+    right: -100px;
+    color: var(--main-color);
+    border-radius: 5px;
+    border: 1px var(--main-color ) solid;
+    overflow: hidden;
+}
+.Shop .card .buying > div{
+    position: relative;
+    width: 100%;
+    transition: 0.5s;
+}
+.Shop .card .buying > div:hover{
+    transform: rotate(360deg);
+    color: var(--light-color);
+    
+    background-color: var(--main-color);
+}
+
+.Shop .card .buying::after{
+    content: '';
+    width: 1px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 50%;
+    background-color: var(--main-color);
+    
+}
+.Shop .card  > span{
+    border-radius: 5px;
+    color: var(--light-color);
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    font-size: 12px;
+    background-color: var(--main-color);
+}
+
+.Shop .card .card-body{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.Shop .card .card-body p{
+    font-size: 14px;
+}
+.Shop .card .card-body span{
+    color: #00B853;
+    font-size: 11px;
+}
+.Shop .card .card-body small{
+    color: #FFCD00;
+    font-size: 11px;
+    justify-content: flex-start;
+    
+    
+}
+.Shop .card .card-body small b{
+color: var(--opasty-color);
+}
+.Shop .card .card-body > b{
+color: var(--body-color);
+font-weight: 600;
+}
+.Shop .card .card-body > div{
+height: 34px;
+}
+.Shop .card .card-body > div > button{
+height: 100%;
+font-weight: 600;
+}
+.Shop .card .card-body > div > button:nth-of-type(1){
+    border-radius: 50% 0% 0% 50%;
+    background-color: #EDEEF5;
+}
+.Shop .card .card-body > div > button:nth-of-type(2){
+    border-radius: 0% 50% 50% 0%;
+    background-color: #FFCD00;
+
+}
+.Shop .pagination span , .Shop .pagination b{
+    font-weight: 600;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    transition: 0.5s;
+
+}
+.Shop .pagination span:hover ,.Shop .pagination button:hover{
+background-color: var(--main-color);
+cursor: pointer;
+
+}
+.Shop .pagination span.open{
+    background-color: var(--main-color);
+
+
+}
