@@ -2,12 +2,15 @@
 import "./Product.css";
 import StarRatings from "react-star-ratings";
 import useProducts from "../../hooks/useQuerypProducts";
+import Loading from "../Loading/Loading";
 
 export default function Products() {
   
     let {data , isLoading} = useProducts()
 
-  console.log(data);
+  if(isLoading){
+    return <Loading />
+  }
 
   return (
     <div className="container mx-auto py-2">
@@ -19,6 +22,7 @@ export default function Products() {
               className="col-md-4 col-lg-3 col-6 border border-1 py-3 pointer-product"
             >
               <div>
+                <span className="px-2 py-1 rounded-1 color-discount text-white">%{product?.discountPercentage}</span>
                 <img
                   src={product?.images[0]}
                   className="p-2 w-100  object-fit-cover"
