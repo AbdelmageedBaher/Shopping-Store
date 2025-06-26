@@ -13,3 +13,12 @@
 .pointer-product{
     cursor: pointer;
 }
+
+.color-offer{
+    color: #038E42;
+}
+
+.back-offer{
+    background: linear-gradient(to right, #00B85333 20%, #20375800 100%);
+
+}

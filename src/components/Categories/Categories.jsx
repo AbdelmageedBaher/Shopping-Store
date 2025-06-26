@@ -1,9 +1,10 @@
 import useProductsByCategory from "../../hooks/useQueryProductsByCategory";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useCategories from "../../hooks/useQueryCategories";
 import StarRatings from "react-star-ratings";
 import "./Categories.css";
 import Loading from "../Loading/Loading";
+import HeaderSlider from "./HeaderSlider/HeaderSlider";
 export default function Categories() {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const {
@@ -13,8 +14,20 @@ export default function Categories() {
   } = useProductsByCategory(selectedCategory?.slug);
   let { data: categories } = useCategories();
 
+  useEffect(() => {
+    if (!selectedCategory && categories?.length > 0) {
+      setSelectedCategory(categories[0]);
+    }
+  }, [categories, selectedCategory]);
+
+  if(productsLoading){
+    return <Loading />
+  }
 
   return (
+    <>
+    <HeaderSlider/>
+    
     <div className="container my-4">
       <div className="row">
         {/* Sidebar */}
@@ -66,7 +79,6 @@ export default function Categories() {
               : "Select a Category"}
           </h4>
 
-          {productsLoading && <Loading />}
           {productsError && <p>Failed to load products.</p>}
 
           <div className="row">
@@ -107,5 +119,8 @@ export default function Categories() {
         </div>
       </div>
     </div>
+    </>
+    
+
   );
 }
