@@ -1,13 +1,12 @@
 // templates/component/Home.js
 
-import React from 'react';
 import  './Home.css';
+import Products from '../Products/Products';
 
 export default function Home() {
     return(
-
         <div className='Home'>
-          <h1>Home component</h1>
+          <Products />
         </div>
     )
 };
