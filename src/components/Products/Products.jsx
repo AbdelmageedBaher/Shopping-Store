@@ -2,21 +2,28 @@
 import "./Product.css";
 import StarRatings from "react-star-ratings";
 import useProducts from "../../hooks/useQuerypProducts";
+import { order } from "../purchaseoOrder/Purchase-order";
 
-export default function Products() {
-  
+
+export default function Products({ product }) {
     let {data , isLoading} = useProducts()
+    const { handleClick } = order();
 
   console.log(data);
 
   return (
-    <div className="container mx-auto py-2">
+    <div className="container mx-auto py-2" >
       <div className="row">
         {data?.map((product) => {
+            const handleProductClick = () => {
+            console.log("Clicked product:", product); //   
+            handleClick(product);
+          };
           return (
             <div
               key={product.id}
               className="col-md-4 col-lg-3 col-6 border border-1 py-3 pointer-product"
+              onClick={handleProductClick}
             >
               <div>
                 <img
