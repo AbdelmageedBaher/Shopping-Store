@@ -30,6 +30,8 @@
     left: 5%;
 }
 
+.HeaderSlider{
+
 .slick-dots {
   position: absolute;
   bottom: 35px;       
@@ -49,5 +51,6 @@
 .slick-dots li.slick-active button:before {
   color: #00B853;     
   opacity: 1;
+}
 }
 

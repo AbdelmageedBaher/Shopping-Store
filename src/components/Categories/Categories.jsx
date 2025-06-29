@@ -101,14 +101,15 @@ export default function Categories() {
                   <h6 className="text-center color-title fw-bold">
                     {product?.title}
                   </h6>
-                  <div className="text-center pt-3">
+                 <div className=" pt-3 d-flex justify-content-center">
                     <StarRatings
-                      rating={product?.rating}
-                      starRatedColor="#ffd700"
-                      starDimension="18px"
-                      starSpacing="15px"
-                    />
-                  </div>
+                  rating={product?.rating}
+                  starRatedColor="#ffd700"
+                  starDimension="19px"
+                  starSpacing="5px"
+                />
+                <span className="ps-2 py-1 light-color">{product?.reviews[0].rating} review</span>
+                </div>
                   <h5 className="fw-bold text-center color-price pt-3">
                     {product?.price} $
                   </h5>

@@ -13,11 +13,12 @@ export default function HeaderSlider() {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
+    arrows:false,
     autoplaySpeed: 2000,
   };
 
   return (
-    <div className="container d-xl-block d-sm-none">
+    <div className="container d-xl-block d-sm-none HeaderSlider">
       <Slider {...settings}>
         <div className="position-relative">
           <img
