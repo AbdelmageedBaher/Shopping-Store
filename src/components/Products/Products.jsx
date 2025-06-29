@@ -2,24 +2,33 @@
 import "./Product.css";
 import StarRatings from "react-star-ratings";
 import useProducts from "../../hooks/useQuerypProducts";
+import { order } from "../purchaseoOrder/Purchase-order";
 import Loading from "../Loading/Loading";
 
-export default function Products() {
-  
+
+export default function Products({ product }) {
     let {data , isLoading} = useProducts()
+    const { handleClick } = order();
 
   if(isLoading){
     return <Loading />
   }
 
   return (
+    <div className="container mx-auto py-2" >
+      <div className="row">
     <div className="container mx-auto py-2">
       <div className="row px-2">
         {data?.map((product) => {
+            const handleProductClick = () => {
+            console.log("Clicked product:", product); //   
+            handleClick(product);
+          };
           return (
             <div
               key={product.id}
               className="col-md-4 col-lg-3 col-6 border border-1 py-3 pointer-product"
+              onClick={handleProductClick}
             >
               <div>
                 <span className="px-2 py-1 rounded-1 color-discount text-white">%{product?.discountPercentage}</span>

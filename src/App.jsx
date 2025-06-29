@@ -7,7 +7,9 @@ import Blog from './components/Blog/Blog';
 import Contact from './components/Contact/Contact';
 import Checkout from './components/Checkout/Checkout';
 import Notfound from './components/Notfound/Notfound';
+import PurchaseOrder from "./components/purchaseoOrder/Purchase-order";
 import Categories from './components/Categories/Categories';
+
 
 
 
@@ -26,11 +28,10 @@ function App() {
     ]
   }])
 
-  return (
-   <RouterProvider router={routes}>
-    
-   </RouterProvider>
-  )
+ return (
+    <PurchaseOrder>
+      <RouterProvider router={routes} />
+    </PurchaseOrder>
+  );
 }
-
 export default App
