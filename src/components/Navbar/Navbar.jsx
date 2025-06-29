@@ -4,12 +4,11 @@ import React from 'react';
 import './Navbar.css';
 
 export default function Navbar() {
-    return(
+  return (
 
-        <div className='Navbar'>
-          <h1>Navbar component</h1>
-        </div>
-    )
+    <div className='Navbar'>
+      <h1>Navbar component </h1>
+    </div>
+  )
 };
 
- 

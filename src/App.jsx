@@ -8,6 +8,10 @@ import Contact from './components/Contact/Contact';
 import Checkout from './components/Checkout/Checkout';
 import Notfound from './components/Notfound/Notfound';
 import PurchaseOrder from "./components/purchaseoOrder/Purchase-order";
+import Categories from './components/Categories/Categories';
+
+
+
 
 function App() {
  
@@ -16,6 +20,7 @@ function App() {
       {index:true,element:<Home />},
       {path:'/about',element:<About />},
       {path:'/shop',element:<Shop />},
+      {path:'/categories',element:<Categories />},
       {path:'/blog',element:<Blog />},
       {path:'/contact',element:<Contact />},
       {path:'/checkout',element:<Checkout />},
