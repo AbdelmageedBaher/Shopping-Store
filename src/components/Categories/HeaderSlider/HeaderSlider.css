@@ -1,0 +1,56 @@
+.color-price{
+    color: #D51243;
+}
+.color-discount{
+    background-color: #35AFA0;
+}
+.color-span{
+    color: #202435;
+    font-size: 15px;
+}
+.pointer-product{
+    cursor: pointer;
+}
+.title-fonts{
+    font-size: 2.8rem;
+    font-weight: 800;
+    width: 33%;
+}
+.color-offer{
+    color: #038E42;
+}
+
+.back-offer{
+    background: linear-gradient(to right, #00B85333 20%, #20375800 100%);
+
+}
+
+.overlay{
+    top:20%;
+    left: 5%;
+}
+
+.HeaderSlider{
+
+.slick-dots {
+  position: absolute;
+  bottom: 35px;       
+  left: 7%;         
+  display: flex !important;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
+}
+
+.slick-dots li button:before {
+  font-size: 14px;
+  color: #cdc6c6;       
+  opacity: 0.75;
+}
+
+.slick-dots li.slick-active button:before {
+  color: #00B853;     
+  opacity: 1;
+}
+}
+
