@@ -1,179 +1,4 @@
-.checkout_container{
-    width: 100vw;
-    height: 100vh;
-}
-.spam{
-    width: 100%;
-    height: 36px;
-    background-color: #35AFA0;
-    font-weight: 400;
-    font-size: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    color: #FFFFFF;
-}
-.spam_2_link a{
-    text-decoration: none;
-    gap: 5px;
-    margin-top: 5px;
-    padding: 10px 10px;
-    font-size: 12px;
-    color: #3E445A;
-}
-.spam_2{
-    height: 39px;
-    margin-top: 10px;
-}
 
-.basket-container {
-    position: relative;
-    display: inline-block; 
-    width: 42px;
-    height: 42px;
-}
-
-.cart-count-badge {
-    position: absolute;
-    top: -5px;
-    right: -5px;
-    background-color: #FF0000;
-    color: #FFFFFF;
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center; 
-    font-size: 12px; 
-    font-weight: bold; 
-    box-sizing: border-box; 
-}
-
-
-/* أنماط شريط التنقل الرئيسي */
-.custom-navbar {
-  background-color: #ffffff; /* خلفية بيضاء */
-  border-bottom: 1px solid #e0e0e0; /* حدود خفيفة في الأسفل */
-  padding: 10px 0; /* ضبط المسافة الداخلية */
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* ظل خفيف */
-  font-size: 15px;
-  line-height: 15px;
-  color: #3E445A;
-}
-
-/* أنماط روابط التنقل (HOME, SHOP, etc.) */
-.custom-nav-links .nav-link {
-  color: #3E445A !important; /* لون نص أغمق للروابط */
-  font-weight: 500;
-  padding: 10px 15px !important; /* ضبط المسافة الداخلية للروابط */
-  display: flex; /* لمحاذاة الأيقونة والنص */
-  align-items: center;
-  justify-self: start;
-  gap: 5px; /* مسافة بين الأيقونة والنص */
-  text-decoration: none; /* إزالة التسطير الافتراضي */
-}
-
-.custom-nav-links .nav-link:hover {
-  color: #20c997 !important; /* لون عند التمرير */
-}
-
-.custom-nav-links .nav-icon {
-  font-size: 1.1em; /* ضبط حجم الأيقونة */
-}
-
-/* ضبط المسافة بين Navbar.Brand (الذي يحتوي على القائمة المنسدلة) و Nav.Link */
-.navbar-brand {
-    margin-right: 30px; /* مسافة بين زر الفئات وروابط التنقل */
-}
-
-/* لضمان أن الروابط تظهر بشكل صحيح على الشاشات الصغيرة */
-@media (max-width: 991.98px) { /* Bootstrap's 'lg' breakpoint */
-    .custom-nav-links {
-        margin-top: 10px; /* مسافة أعلى الروابط عند الانهيار */
-    }
-    .custom-nav-links .nav-link {
-        padding: 8px 0 !important; /* ضبط المسافة الداخلية للروابط في وضع الانهيار */
-    }
-}
-
-/* أنماط مكون CustomCategoryDropdown */
-.categories-widget-wrapper {
-  position: relative; /* مهم لوضع الشارة بشكل مطلق بالنسبة لهذه الحاوية */
-  display: inline-block; /* لكي لا يشغل مساحة عرض كاملة */
-}
-
-.custom-category-toggle {
-  /* الأنماط الأساسية للزر */
-  background-color: #35AFA0 !important; /* لون تركوازي/أخضر */
-  color: white !important;
-  border-radius: 30px !important; /* زوايا مستديرة للغاية (شكل حبة الدواء) */
-  padding: 10px 20px !important;
-  font-weight: 400;
-  border: none !important; /* إزالة أي حدود */
-  box-shadow: none !important; /* إزالة أي ظلال */
-    font-size: 15px !important; 
-  /* لجعل الأيقونة والنص في سطر واحد مع مسافة بينهما */
-  display: flex !important;
-  align-items: center !important;
-  gap: 8px !important; /* مسافة بين الأيقونة والنص */
-
-  /* لضمان سلوك الزر الصحيح */
-  cursor: pointer;
-  text-align: left !important; /* محاذاة النص لليسار داخل الزر */
-  white-space: nowrap; /* منع التفاف النص */
-  
-  /* تجاوز أي أنماط افتراضية أخرى قد تكون موجودة */
-  outline: none !important; /* إزالة الخط الأزرق عند التركيز */
-}
-
-/* نمط أيقونة القائمة داخل الزر */
-.custom-category-toggle .menu-icon {
-  font-size: 15px; /* ضبط حجم الأيقونة */
-    font-weight: 400;
-}
-
-/* ضبط لون علامة الإقحام (سهم القائمة المنسدلة) */
-.custom-category-toggle::after {
-  color: white !important; /* التأكد من أن السهم أبيض */
-  margin-left: 10px !important; /* مسافة بين النص والسهم */
-}
-
-/* أنماط عند التمرير (hover) والتركيز (focus) والضغط (active) */
-.custom-category-toggle:hover,
-.custom-category-toggle:focus,
-.custom-category-toggle:active {
-  background-color: #1a9c78 !important; /* لون أغمق قليلاً عند التفاعل */
-  color: white !important;
-  border: none !important;
-  box-shadow: none !important;
-  outline: none !important; /* إزالة الخط الأزرق عند التركيز */
-}
-
-/* أنماط شارة "TOTAL 50 PRODUCTS" */
-.total-products-badge {
-  position: absolute;
-  bottom: -10px; /* يحركه لأسفل من الحافة السفلية للحاوية */
-  left: 45px; /* يحركه لليمين من الحافة اليسرى للحاوية */
-  
-  background-color: #f8f9fa; /* خلفية رمادية فاتحة */
-  color: #6c757d; /* نص رمادي أغمق */
-  border-radius: 15px; /* زوايا مستديرة للشارة */
-  padding: 3px 10px;
-  white-space: nowrap; /* منع التفاف النص */
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* ظل خفيف */
-  z-index: 1; /* التأكد من أنه فوق العناصر الأخرى إذا لزم الأمر */
-  width: 125px;
-  height: 20px;
-  font-size: 10px;
-  font-weight: 600;
-}
-
-/* التأكد من أن القائمة المنسدلة تظهر فوق الشارة إذا فتحت لأسفل */
-.dropdown-menu {
-  z-index: 1000 !important; /* مؤشر z-index الافتراضي لـ Bootstrap للقوائم المنسدلة */
-}
 
 /* checkout_content */
 .checkout_content_container{
@@ -194,8 +19,8 @@ height: 600px;
 /* src/components/CheckoutForm.css */
 
 .checkout-form-container {
-  max-width: 600px; /* عرض النموذج كما في الصورة */
-  margin: 30px auto; /* توسيط النموذج في الصفحة */
+  max-width: 600px; 
+  margin: 30px auto; 
   padding: 20px;
   background-color: #fff;
   border-right:1px solid #ced4da;
@@ -217,11 +42,11 @@ height: 600px;
   border-radius: 4px;
   padding: 10px 12px;
   font-size: 0.95em;
-  border: 1px solid #ced4da; /* لون حدود الحقول */
+  border: 1px solid #ced4da; 
 }
 
 .custom-form-control:focus {
-  border-color: #80bdff; /* لون الحدود عند التركيز */
+  border-color: #80bdff; 
   box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
 }
 
@@ -229,22 +54,22 @@ height: 600px;
   font-size: 0.85em;
   color: #6c757d;
   margin-bottom: 5px;
-  display: block; /* لجعلها تظهر فوق حقل الإدخال */
+  display: block; 
 }
 
 /* أنماط Checkbox و Radio */
 .custom-checkbox .form-check-input,
 .custom-radio .form-check-input {
-  border-radius: 3px; /* لجعلها مربعة قليلاً */
+  border-radius: 3px; 
   border: 1px solid #ced4da;
   width: 1.2em;
   height: 1.2em;
-  margin-top: 0.25em; /* محاذاة أفضل مع النص */
+  margin-top: 0.25em; 
 }
 
 .custom-checkbox .form-check-input:checked,
 .custom-radio .form-check-input:checked {
-  background-color: #007bff; /* لون أزرق عند التحديد */
+  background-color: #007bff; 
   border-color: #007bff;
 }
 
@@ -252,7 +77,7 @@ height: 600px;
 .custom-radio .form-check-label {
   font-size: 0.95em;
   color: #333;
-  margin-left: 5px; /* مسافة بين المربع والنص */
+  margin-left: 5px; 
 }
 
 /* قسم طريقة الشحن */
@@ -261,7 +86,7 @@ height: 600px;
   justify-content: space-between;
   align-items: center;
   padding: 5px;
-  border: 1px solid #DEDEDE; /* خط فاصل بين خيارات الشحن */
+  border: 1px solid #DEDEDE; 
   background-color: #F0F5FF;
   height: 51px;
   width: 100%;
@@ -269,7 +94,7 @@ height: 600px;
 }
 
 .shipping-option:last-child {
-  border-bottom: none; /* إزالة الخط الفاصل للأخير */
+  border-bottom: none; 
 }
 
 .shipping-price {
@@ -290,10 +115,10 @@ height: 600px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 150px; /* ارتفاع مناسب للمربع */
-  border: 1px dashed #ced4da; /* حدود متقطعة */
+  min-height: 150px; 
+  border: 1px dashed #ced4da; 
   border-radius: 5px;
-  background-color: #f8f9fa; /* خلفية رمادية فاتحة */
+  background-color: #f8f9fa; 
   text-align: center;
   padding: 20px;
 }
@@ -316,7 +141,7 @@ height: 600px;
   font-size: 1em;
   font-weight: 700;
   border-radius: 5px;
-  background-color: #F5F5F5; /* لون أزرق لزر الدفع */
+  background-color: #F5F5F5; 
   margin-top: 20px;
   color: #000000; 
   line-height: 28.5px;
@@ -324,7 +149,7 @@ height: 600px;
 }
 
 .pay-now-button:hover {
-  background-color: #0056b3; /* لون أغمق عند التمرير */
+  background-color: #0056b3; 
 }
 
 /* تحسين تجاوب واحترافية صفحة الدفع */
