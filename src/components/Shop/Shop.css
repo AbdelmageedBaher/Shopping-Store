@@ -63,10 +63,11 @@ color: var(--dark-color);
 }
 .Shop .sidePro > ul li p.open span .check{
     display: block;
-    color: var(--dark-color);
+    color: var(--main-color);
 }
 .Shop .sidePro > ul li p.open {
-    color: var(--dark-color);
+    color: var(--main-color);
+
 }
 .Shop .price > div{
 color: var(--opasty-color);
