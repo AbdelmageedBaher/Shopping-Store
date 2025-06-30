@@ -4,8 +4,6 @@ import { Container, Row, Col } from 'react-bootstrap';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Form from 'react-bootstrap/Form';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
@@ -19,30 +17,7 @@ import OrderSummary from './OrderSummary';
 
 
 
-const CustomCategoryDropdown = () => {
-  return (
-    <div className="categories-widget-wrapper">
-      <Dropdown>
-        <Dropdown.Toggle id="dropdown-categories" className="custom-category-toggle">
-          <FontAwesomeIcon icon={faBars} className="menu-icon" /> ALL CATEGORIES
-        </Dropdown.Toggle>
 
-        <Dropdown.Menu>
-          <Dropdown.Item href="#/action-1">Fruits & Vegetables</Dropdown.Item>
-          <Dropdown.Item href="#/action-2">Dairy & Eggs</Dropdown.Item>
-          <Dropdown.Item href="#/action-3">Baked Goods</Dropdown.Item>
-          <Dropdown.Item href="#/action-4">Frozen Foods</Dropdown.Item>
-          <Dropdown.Item href="#/action-5">Beverages</Dropdown.Item>
-          <Dropdown.Item href="#/action-6">Snacks</Dropdown.Item>
-        </Dropdown.Menu>
-      </Dropdown>
-
-      <div className="total-products-badge">
-        TOTAL 50 PRODUCTS
-      </div>
-    </div>
-  );
-};
 
 
 
