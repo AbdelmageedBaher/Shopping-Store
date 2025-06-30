@@ -1,0 +1,257 @@
+/* OrderSummary.css */
+
+.order-summary-container {
+  max-width: 400px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+
+/* قسم المنتجات */
+.order-items-list {
+  margin-bottom: 20px;
+}
+
+.order-item-row {
+  padding: 12px 0;
+}
+
+/* صور المنتجات */
+.item-image-col {
+  position: relative;
+}
+
+.item-image-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.item-thumbnail {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #e5e5e5;
+}
+
+.item-quantity-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: #6c757d;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* أسماء المنتجات */
+.item-name-col {
+  padding-left: 12px;
+}
+
+.item-name {
+  font-size: 14px;
+  color: #333333;
+  font-weight: 500;
+  line-height: 1.4;
+  display: block;
+}
+
+/* أسعار المنتجات */
+.item-price-col {
+  padding-right: 0;
+}
+
+.item-price {
+  font-size: 14px;
+  color: #333333;
+  font-weight: 600;
+}
+
+/* قسم الملخص */
+.order-summary-details {
+  padding-top: 16px;
+}
+
+.summary-line {
+  margin-bottom: 8px;
+  align-items: center;
+}
+
+.summary-line:last-child {
+  margin-bottom: 0;
+}
+
+/* تسميات الملخص */
+.summary-label {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.summary-value {
+  font-size: 14px;
+  color: #333333;
+  font-weight: 600;
+}
+
+.summary-value-free {
+  font-size: 14px;
+  color: #28a745;
+  font-weight: 600;
+}
+
+/* خط الإجمالي */
+.total-line {
+  padding-top: 12px;
+  margin-top: 12px;
+  margin-bottom: 8px;
+}
+
+.total-label {
+  font-size: 16px;
+  color: #333333;
+  font-weight: 600;
+}
+
+.total-value-col {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+}
+
+.currency-label {
+  font-size: 12px;
+  color: #666666;
+  font-weight: 400;
+}
+
+.total-value {
+  font-size: 16px;
+  color: #333333;
+  font-weight: 700;
+}
+
+/* معلومات الضريبة */
+.tax-info-line {
+  margin-top: 4px;
+}
+
+.tax-info {
+  font-size: 12px;
+  color: #999999;
+  font-style: italic;
+    justify-content:start;
+    align-items: center;
+    display: flex;
+}
+
+/* تحسينات للشاشات الصغيرة */
+@media (max-width: 576px) {
+  .order-summary-container {
+    max-width: 100%;
+    margin: 0 10px;
+    padding: 16px;
+  }
+  
+  .item-thumbnail {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .item-quantity-badge {
+    width: 18px;
+    height: 18px;
+    font-size: 11px;
+  }
+  
+  .item-name {
+    font-size: 13px;
+  }
+  
+  .item-price,
+  .summary-value,
+  .summary-value-free {
+    font-size: 13px;
+  }
+  
+  .total-value {
+    font-size: 15px;
+  }
+}
+
+/* تحسين إضافي للشاشات الصغيرة جدًا */
+@media (max-width: 400px) {
+  .order-summary-container {
+    padding: 8px;
+  }
+  .item-thumbnail {
+    width: 38px;
+    height: 38px;
+  }
+  .item-name {
+    font-size: 12px;
+  }
+  .item-price,
+  .summary-value,
+  .summary-value-free,
+  .total-value {
+    font-size: 12px;
+  }
+}
+
+/* جعل الأعمدة تتكدس عموديًا في الشاشات الضيقة */
+@media (max-width: 480px) {
+  .order-item-row {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 0;
+  }
+  .item-name-col,
+  .item-price-col {
+    padding-left: 0;
+    padding-right: 0;
+    margin-top: 4px;
+  }
+  .total-value-col {
+    justify-content: flex-start;
+  }
+}
+
+/* تحسينات إضافية للتفاعل */
+.order-item-row:hover {
+  background-color: #f8f9fa;
+  transition: background-color 0.2s ease;
+}
+
+.item-thumbnail:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s ease;
+}
+
+/* تحسين المظهر العام */
+.order-summary-container * {
+  box-sizing: border-box;
+}
+
+.order-summary-container .row {
+  margin: 0;
+}
+
+.order-summary-container .col-xs-2,
+.order-summary-container .col-xs-3,
+.order-summary-container .col-xs-4,
+.order-summary-container .col-xs-7,
+.order-summary-container .col-xs-8,
+.order-summary-container .col-xs-12 {
+  padding-left: 8px;
+  padding-right: 8px;
+}
