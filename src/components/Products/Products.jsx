@@ -15,12 +15,11 @@ export default function Products({ product }) {
   }
 
   return (
-    <div className="container mx-auto py-2" >
-      <div className="row">
+    
     <div className="container mx-auto py-2">
       <div className="row px-2">
         {data?.map((product) => {
-            const handleProductClick = () => {
+          const handleProductClick = () => {
             console.log("Clicked product:", product); //   
             handleClick(product);
           };
@@ -43,13 +42,13 @@ export default function Products({ product }) {
                   {product?.title}
                 </h6>
                 <div className=" pt-3 d-flex justify-content-center">
-                    <StarRatings
-                  rating={product?.rating}
-                  starRatedColor="#ffd700"
-                  starDimension="19px"
-                  starSpacing="5px"
-                />
-                <span className="ps-2 py-1 light-color">{product?.reviews[0].rating} review</span>
+                  <StarRatings
+                    rating={product?.rating}
+                    starRatedColor="#ffd700"
+                    starDimension="19px"
+                    starSpacing="5px"
+                  />
+                  <span className="ps-2 py-1 light-color">{product?.reviews[0].rating} review</span>
                 </div>
                 <h5 className="fw-bold text-center color-price pt-3">{product?.price} $</h5>
               </div>
