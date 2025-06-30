@@ -1,18 +1,10 @@
 // templates/component/Checkout.js
 import './Checkout.css';
 import { Container, Row, Col } from 'react-bootstrap';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import Dropdown from 'react-bootstrap/Dropdown';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { 
-  faCreditCard,
-  faBars, 
-  faDrumstickBite, 
-  faCookieBite,    
-  faCoffee         
-} from '@fortawesome/free-solid-svg-icons';
+import { faCreditCard} from '@fortawesome/free-solid-svg-icons';
 import OrderSummary from './OrderSummary';
 
 
