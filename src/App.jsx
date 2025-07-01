@@ -9,6 +9,7 @@ import Checkout from './components/Checkout/Checkout';
 import Notfound from './components/Notfound/Notfound';
 import PurchaseOrder from "./components/purchaseoOrder/Purchase-order";
 import Categories from './components/Categories/Categories';
+import Login from './components/Login/Login';
 
 
 
@@ -21,6 +22,7 @@ function App() {
       {path:'/about',element:<About />},
       {path:'/shop',element:<Shop />},
       {path:'/categories',element:<Categories />},
+      {path:'/login',element:<Login />},
       {path:'/blog',element:<Blog />},
       {path:'/contact',element:<Contact />},
       {path:'/checkout',element:<Checkout />},
