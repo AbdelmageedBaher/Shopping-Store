@@ -225,6 +225,7 @@ font-weight: 600;
 height: 34px;
 }
 .Shop .card .card-body > div > button{
+    width: 25%;
 height: 100%;
 font-weight: 600;
 }
@@ -237,7 +238,7 @@ font-weight: 600;
     background-color: #FFCD00;
 
 }
-.Shop .pagination span , .Shop .pagination b{
+.Shop .pagination span , .Shop .pagination button{
     font-weight: 600;
     width: 36px;
     height: 36px;
