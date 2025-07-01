@@ -1,8 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Form } from 'react-bootstrap';
 
+
 function Login() {
 
+const [email, setEmail] = useState('');
+const [password, setPassword] = useState('');
+
+const handleLogin = () => {
+    console.log('Email:', email);
+    console.log('Password:', password);
+    };
 
   return (
     <div className="login-page d-flex justify-content-center align-items-center" style={{ minHeight: '100vh', background: '#f8f9fa' }}>
