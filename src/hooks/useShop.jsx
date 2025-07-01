@@ -13,6 +13,11 @@ const {allData , apiCategories , getApiSpacificCategory} = useContext(apiContext
 const[carantPage , setcarantPge] = useState(1)
 
 
+
+
+
+
+
         //start paginion
     const productPrePage = 20
     const pages = Math.ceil(allData?.length / productPrePage)

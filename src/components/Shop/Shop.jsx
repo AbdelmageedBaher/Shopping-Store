@@ -8,7 +8,8 @@
   import useShop from '../../hooks/useShop';
 
         function Shop() {
-       
+
+          
           
           // start-useShop  
           const { apiCategories , getApiSpacificCategory , carantPage , setcarantPge , pages  , orderProducts , generatedPages , pageRefs  , handlePageClick , handlePrev , handleNext , showAllData} = useShop()
@@ -39,7 +40,9 @@
 
 
         return (
-        <div className='Shop container p-3'>
+        
+          
+          <div className='Shop container p-3'>
         <div>
         <p className=' m-0'>HOME <span><FaChevronRight className='m-0 p-0'/> PRODUCTS </span></p>
         </div>
