@@ -7,8 +7,10 @@ import Blog from './components/Blog/Blog';
 import Contact from './components/Contact/Contact';
 import Checkout from './components/Checkout/Checkout';
 import Notfound from './components/Notfound/Notfound';
-import PurchaseOrder from "./components/purchaseoOrder/Purchase-order";
+import PurchaseOrder from "./components/purchaseOrder/Purchase-order";
 import Categories from './components/Categories/Categories';
+import Login from "./components/Login/Login";
+
 
 
 
@@ -25,6 +27,7 @@ function App() {
       {path:'/contact',element:<Contact />},
       {path:'/checkout',element:<Checkout />},
       {path:'*',element:<Notfound />},
+      {path:'/login',element:<Login />},
     ]
   }])
 
