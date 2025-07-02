@@ -2,7 +2,7 @@
 import "./Product.css";
 import StarRatings from "react-star-ratings";
 import useProducts from "../../hooks/useQuerypProducts";
-import { order } from "../purchaseoOrder/Purchase-order";
+import { order } from "../purchaseOrder/Purchase-order";
 import Loading from "../Loading/Loading";
 
 
