@@ -3,8 +3,8 @@ import { Button, Form, Alert, Spinner } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 
 function Login() {
-  const [username, setUsername] = useState('emilys'); // Default to empty for production, or 'kminchelle' for testing
-  const [password, setPassword] = useState('emilyspass');   // Default to empty for production, or '0lelplR' for testing
+  const [username, setUsername] = useState('emilys'); // Default to empty for production, or 'emilys' for testing
+  const [password, setPassword] = useState('emilyspass');   // Default to empty for production, or 'emilyspass' for testing
 
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
