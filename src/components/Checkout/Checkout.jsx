@@ -6,8 +6,7 @@ import Button from 'react-bootstrap/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCreditCard} from '@fortawesome/free-solid-svg-icons';
 import OrderSummary from './OrderSummary';
-
-
+import { Link } from 'react-router-dom';
 
 
 
@@ -16,6 +15,7 @@ import OrderSummary from './OrderSummary';
 
 
 export default function Checkout() {
+  
     return(
 
         <div className='checkout_container'>
@@ -31,7 +31,7 @@ export default function Checkout() {
               <div className="form-section">
                 <div className="form-header" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", height: "26px" }}>
                   <h5 className="section-title" >Contact</h5>
-                  <a href="#" style={{ fontSize: "14px", color: "#007bff" }}>Login</a>
+                  <Link to="/Login" style={{ fontSize: "14px", color: "#007bff" }}>Login</Link>
         </div>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Control type="email" placeholder="Email or mobile phone number" className="custom-form-control" />

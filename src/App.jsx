@@ -9,9 +9,8 @@ import Checkout from './components/Checkout/Checkout';
 import Notfound from './components/Notfound/Notfound';
 import PurchaseOrder from "./components/purchaseOrder/Purchase-order";
 import Categories from './components/Categories/Categories';
-import Login from './components/Login/Login';
-
-
+import Login from "./components/Login/Login";
+import Register from "./components/Register/Register";
 
 
 
@@ -29,6 +28,7 @@ function App() {
       {path:'/contact',element:<Contact />},
       {path:'/checkout',element:<Checkout />},
       {path:'*',element:<Notfound />},
+      {path:'/register',element:<Register />},
     ]
   }])
 
