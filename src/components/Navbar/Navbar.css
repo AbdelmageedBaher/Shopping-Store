@@ -1,4 +1,4 @@
-.Navbar {}
+
 :root{
   --font-family:"Inter", sans-serif;
   --main-color:#35AFA0 ;
@@ -22,7 +22,7 @@
 .NavPart-2 {
   height: 40px;
   border-bottom: 1px solid var(--opasty-color);
-  padding: 0 120px 1px 360px;
+  padding: 0 130px 1px 130px;
 }
 .NavPart-2 .Part-left{
   font-family: var(--font-family);
@@ -50,7 +50,7 @@
 }
 .NavPart-3{
   height: 93px;
-  padding: 30px 150px 0 360px;
+  padding: 30px 130px 0 130px;
 }
 .NavPart-3 .logo{
   position: absolute;
@@ -99,9 +99,9 @@
   letter-spacing: -0.1px;
 }
 .NavPart-4{
-  padding: 30px 150px 0 360px;
+  padding: 30px 130px 0 130px;
 }
-.leftPart{
+ .NavPart-4 .leftPart{
   border-radius: 50px;
   background-color: var(--main-color);
   color: var(--light-color);
