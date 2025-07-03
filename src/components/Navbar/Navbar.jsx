@@ -123,7 +123,7 @@ export default function Navbar() {
        </Link>
         </li>
         <li>
-          <Link to="/about">Shop</Link>
+          <Link to="/shop">Shop</Link>
         </li>
         <li>
           <Link to="/contact">

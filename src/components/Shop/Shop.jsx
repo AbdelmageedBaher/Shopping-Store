@@ -1,8 +1,8 @@
         import React, { useEffect, useRef, useState } from 'react'
         import './Shop.css'
-        // import { FaChevronRight } from "react-icons/fa6";
-        // import { FaChevronLeft } from "react-icons/fa6";
-        // import { FaCheckSquare } from "react-icons/fa";
+        import { FaChevronRight } from "react-icons/fa6";
+        import { FaChevronLeft } from "react-icons/fa6";
+        import { FaCheckSquare } from "react-icons/fa";
         import img1 from '../../assets/images/prand-star.png';
         import img2 from '../../assets/images/proster-shop.png'
   import useShop from '../../hooks/useShop';
