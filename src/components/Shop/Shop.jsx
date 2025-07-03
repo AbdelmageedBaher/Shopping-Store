@@ -6,12 +6,13 @@
         import img1 from '../../assets/images/prand-star.png';
         import img2 from '../../assets/images/proster-shop.png'
   import useShop from '../../hooks/useShop';
+import Loading from '../Loading/Loading';
 
         function Shop() {
 
           
           // start-useShop  
-          const { apiCategories , getApiSpacificCategory , carantPage , setcarantPge , pages  , orderProducts , generatedPages , pageRefs  , handlePageClick , handlePrev , handleNext , showAllData} = useShop()
+          const { apiCategories , getApiSpacificCategory , carantPage , setcarantPge , pages  , orderProducts , generatedPages , pageRefs  , handlePageClick , handlePrev , handleNext , showAllData, isLoading } = useShop()
           // end-useShop  
 
 
@@ -34,7 +35,7 @@
 
 
 
-
+if (isLoading) return <Loading />;
 
 
 
