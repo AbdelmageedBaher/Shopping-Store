@@ -1,4 +1,4 @@
-import Slider from "react-slick";
+import Slider from "react-slick"
 import imgSlider1 from "../../../assets/images/slider-image-1.png";
 import imgSlider2 from "../../../assets/images/slider-image-2.png";
 import imgSlider3 from "../../../assets/images/slider-image-3.png";

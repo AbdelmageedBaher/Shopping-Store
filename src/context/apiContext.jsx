@@ -10,13 +10,17 @@ export const ApiContextProvider =({children})=>{
     const url = 'https://dummyjson.com/products'
     const [allData , setAllData] = useState([])
     const [apiCategories , setApiCategories] = useState([])
+  const [isLoading , setIsLoading]=useState(true);
+
+  
+
 
 
    async function getAllData(){
-
+    setIsLoading(true)
     let {data} = await axios.get(url) ;
     setAllData(data.products)
-    
+    setIsLoading(false)
     
     
 }
@@ -30,16 +34,17 @@ async function GetAllCategories(){
 async function getApiSpacificCategory(CatUrl) {
     let {data} = await axios.get(CatUrl)
     setAllData(data.products)
-    }
+}
 
-    useEffect(()=>{
-        getAllData()
-        GetAllCategories()
+
+useEffect(()=>{
+    getAllData()
+    GetAllCategories()
     } , [])
 
 
 return(
-    <apiContext.Provider value={{allData , apiCategories , getApiSpacificCategory}}>
+    <apiContext.Provider value={{allData , apiCategories , getApiSpacificCategory , isLoading , setIsLoading}}>
         {children}
     </apiContext.Provider>
 )

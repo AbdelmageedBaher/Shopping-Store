@@ -1,7 +1,7 @@
 import useProductsByCategory from "../../hooks/useQueryProductsByCategory";
 import { useEffect, useState } from "react";
 import useCategories from "../../hooks/useQueryCategories";
-import StarRatings from "react-star-ratings";
+// import StarRatings from "react-star-ratings";
 import "./Categories.css";
 import Loading from "../Loading/Loading";
 import HeaderSlider from "./HeaderSlider/HeaderSlider";

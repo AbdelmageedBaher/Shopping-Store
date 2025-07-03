@@ -6,11 +6,23 @@ import { FaStar } from "react-icons/fa";
 import { CiStar } from "react-icons/ci";
 import { FaShopify } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
+ import { order } from '../components/purchaseOrder/Purchase-order';
+import Loading from '../components/Loading/Loading';
 
 
 function useShop() {
-const {allData , apiCategories , getApiSpacificCategory} = useContext(apiContext)
+const {allData , apiCategories , getApiSpacificCategory , isLoading  , setIsLoading} = useContext(apiContext)
 const[carantPage , setcarantPge] = useState(1)
+
+          const { handleClick } = order();
+
+
+    
+
+
+    
+
+
 
 
         //start paginion
@@ -63,8 +75,13 @@ const[carantPage , setcarantPge] = useState(1)
  // start-fetch-allData
 const showAllData = orderProducts?.map((val , index)=>{
   return(
+    
     <div key={index}  className="col-lg-3 col-md-6 col-12">
-          <div  className="card">
+
+    
+      
+      
+          <div  className="card" onClick={() => handleClick(val)} style={{ cursor: 'pointer' }}>
           <div className='buying flex '>
             <div className='px-2 gap-3 py-1'>
             <FaShopify/>
@@ -95,7 +112,7 @@ const showAllData = orderProducts?.map((val , index)=>{
         // end-fetch-allData
         
         
-        return{allData , apiCategories , getApiSpacificCategory , carantPage , setcarantPge , productPrePage , pages , startIndex , finishIndex , orderProducts , generatedPages , pageRefs ,updateActiveClass , handlePageClick , handlePrev , handleNext , showAllData}
+        return{allData , apiCategories , getApiSpacificCategory , carantPage , setcarantPge , productPrePage , pages , startIndex , finishIndex , orderProducts , generatedPages , pageRefs ,updateActiveClass , handlePageClick , handlePrev , handleNext , showAllData , isLoading}
         
       }
       

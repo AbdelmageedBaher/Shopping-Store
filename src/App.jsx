@@ -10,7 +10,7 @@ import Notfound from './components/Notfound/Notfound';
 import PurchaseOrder from "./components/purchaseOrder/Purchase-order";
 import Categories from './components/Categories/Categories';
 import Login from "./components/Login/Login";
-
+import Register from "./components/Register/Register";
 
 
 
@@ -28,6 +28,7 @@ function App() {
       {path:'/checkout',element:<Checkout />},
       {path:'*',element:<Notfound />},
       {path:'/login',element:<Login />},
+      {path:'/register',element:<Register />},
     ]
   }])
 

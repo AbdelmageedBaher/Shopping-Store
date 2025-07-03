@@ -1,17 +1,18 @@
         import React, { useEffect, useRef, useState } from 'react'
         import './Shop.css'
-        import { FaChevronRight } from "react-icons/fa6";
-        import { FaChevronLeft } from "react-icons/fa6";
-        import { FaCheckSquare } from "react-icons/fa";
+        // import { FaChevronRight } from "react-icons/fa6";
+        // import { FaChevronLeft } from "react-icons/fa6";
+        // import { FaCheckSquare } from "react-icons/fa";
         import img1 from '../../assets/images/prand-star.png';
         import img2 from '../../assets/images/proster-shop.png'
   import useShop from '../../hooks/useShop';
+import Loading from '../Loading/Loading';
 
         function Shop() {
-       
+
           
           // start-useShop  
-          const { apiCategories , getApiSpacificCategory , carantPage , setcarantPge , pages  , orderProducts , generatedPages , pageRefs  , handlePageClick , handlePrev , handleNext , showAllData} = useShop()
+          const { apiCategories , getApiSpacificCategory , carantPage , setcarantPge , pages  , orderProducts , generatedPages , pageRefs  , handlePageClick , handlePrev , handleNext , showAllData, isLoading } = useShop()
           // end-useShop  
 
 
@@ -34,12 +35,14 @@
 
 
 
-
+if (isLoading) return <Loading />;
 
 
 
         return (
-        <div className='Shop container p-3'>
+        
+          
+          <div className='Shop container p-3'>
         <div>
         <p className=' m-0'>HOME <span><FaChevronRight className='m-0 p-0'/> PRODUCTS </span></p>
         </div>
