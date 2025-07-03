@@ -10,7 +10,6 @@
         function Shop() {
 
           
-          
           // start-useShop  
           const { apiCategories , getApiSpacificCategory , carantPage , setcarantPge , pages  , orderProducts , generatedPages , pageRefs  , handlePageClick , handlePrev , handleNext , showAllData} = useShop()
           // end-useShop  

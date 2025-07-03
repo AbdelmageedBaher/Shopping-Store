@@ -6,13 +6,14 @@ import { FaStar } from "react-icons/fa";
 import { CiStar } from "react-icons/ci";
 import { FaShopify } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
+ import { order } from '../components/purchaseOrder/Purchase-order';
 
 
 function useShop() {
 const {allData , apiCategories , getApiSpacificCategory} = useContext(apiContext)
 const[carantPage , setcarantPge] = useState(1)
 
-
+          const { handleClick } = order();
 
 
 
@@ -69,7 +70,7 @@ const[carantPage , setcarantPge] = useState(1)
 const showAllData = orderProducts?.map((val , index)=>{
   return(
     <div key={index}  className="col-lg-3 col-md-6 col-12">
-          <div  className="card">
+          <div  className="card" onClick={() => handleClick(val)} style={{ cursor: 'pointer' }}>
           <div className='buying flex '>
             <div className='px-2 gap-3 py-1'>
             <FaShopify/>
