@@ -4,6 +4,8 @@ import StarRatings from "react-star-ratings";
 import useProducts from "../../hooks/useQuerypProducts";
 import { order } from "../purchaseOrder/Purchase-order";
 import Loading from "../Loading/Loading";
+import { FaArrowRight } from "react-icons/fa";
+
 
 
 export default function Products({ product }) {
@@ -17,7 +19,27 @@ export default function Products({ product }) {
   return (
     
     <div className="container mx-auto py-2">
-      <div className="row px-2">
+      <div className="d-flex justify-content-between my-4">
+        <div>
+                <h1 style={{ fontWeight: "400" }}>Best Sellers</h1>
+                <p style={{ color: "#9B9BB4" }}>
+                  Do not miss the current offers until the end of March.
+                </p>
+              </div>
+              <div>
+                <button
+                  style={{
+                    backgroundColor: "transparent",
+                    color: "#9B9BB4",
+                    borderColor: "#D9D9E9",
+                  }}
+                  className="px-5 py-2 rounded-pill border border-none"
+                >
+                  View All <FaArrowRight />{" "}
+                </button>
+              </div>
+      </div>
+      <div className="row">
         {data?.map((product) => {
           const handleProductClick = () => {
             console.log("Clicked product:", product); //   
