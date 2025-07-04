@@ -9,7 +9,7 @@ import Footer from './../Footer/Footer';
 
 export default function Layout() {
     return(
-        <div className='Layout'>
+        <div className='d-flex flex-column justify-content-between '>
           <Navbar />
           <Outlet />
           <Footer />

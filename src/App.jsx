@@ -30,7 +30,7 @@ function App() {
       {path:'*',element:<Notfound />},
       {path:'/register',element:<Register />},
     ]
-  }])
+  }]);
 
  return (
     <PurchaseOrder>
