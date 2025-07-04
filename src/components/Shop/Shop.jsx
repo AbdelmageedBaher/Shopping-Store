@@ -7,14 +7,14 @@
         import img2 from '../../assets/images/proster-shop.png'
   import useShop from '../../hooks/useShop';
 import Loading from '../Loading/Loading';
-import { cartContext } from '../../context/CartContext';
+import { CartContext } from '../../context/CartContext';
 
         function Shop() {
 
           
           // start-useShop  
           const { apiCategories , getApiSpacificCategory , carantPage , setcarantPge , pages  , orderProducts , generatedPages , pageRefs  , handlePageClick , handlePrev , handleNext , showAllData, isLoading } = useShop()
-          const {changeAmount , totallCart} = useContext(cartContext)
+          const {changeAmount , totallCart} = useContext(CartContext)
           
           // end-useShop  
 

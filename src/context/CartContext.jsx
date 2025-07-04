@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
 
 export const CartContext = createContext();
 
@@ -26,123 +26,57 @@ export const CartContextProvider = ({ children }) => {
       } else {
         // إذا كان المنتج جديدًا، أضفه بكمية 1
         // تأكد من أن المنتج يحتوي على الحقول الأساسية (id, title, price, thumbnail)
-        return [...prevItems, {
-          id: product.id,
-          title: product.title || product.name, // استخدم title أو name
-          price: product.price,
-          thumbnail: product.thumbnail || product.image, // استخدم thumbnail أو image
-          quantity: 1
-        }];
+        // إضافة فحص لـ product.price لضمان أنه رقم
+        if (product && typeof product.price === 'number') {
+          return [...prevItems, {
+            id: product.id,
+            title: product.title || product.name || 'Unknown Product', // قيمة افتراضية
+            price: product.price,
+            thumbnail: product.thumbnail || product.image || 'default-image.jpg', // قيمة افتراضية
+            quantity: 1 // Navbar يتوقع quantity
+          }];
+        } else {
+          console.error("Product added to cart does not have a valid price:", product);
+          return prevItems; // لا تضف المنتج إذا لم يكن له سعر صالح
+        }
       }
     });
   };
 
-  // دالة لإزالة منتج من السلة بالكامل
-  const removeFromCart = (productId) => {
+  // دالة لحذف منتج من السلة بالكامل (تطابق deleteFromCart في Navbar)
+  const deleteFromCart = (productId) => {
     setCartItems((prevItems) => prevItems.filter((item) => item.id !== productId));
   };
 
-  // دالة لتحديث كمية منتج معين
-  const updateQuantity = (productId, newQuantity) => {
+  // دالة لتغيير كمية منتج (تطابق changeAmount في Navbar)
+  const changeAmount = (type, product) => { // product هنا هو val من Navbar
     setCartItems((prevItems) =>
-      prevItems.map((item) =>
-        item.id === productId ? { ...item, quantity: newQuantity } : item
-      ).filter(item => item.quantity > 0) // إزالة العنصر إذا أصبحت الكمية 0 أو أقل
+      prevItems.map((item) => {
+        if (item.id === product.id) {
+          const newQuantity = type === 'plus' ? item.quantity + 1 : item.quantity - 1;
+          return { ...item, quantity: Math.max(0, newQuantity) }; // لا تسمح بكمية سالبة
+        }
+        return item;
+      }).filter(item => item.quantity > 0) // إزالة العنصر إذا أصبحت الكمية 0
     );
   };
 
-  // دالة لحساب الإجمالي الفرعي لسلة التسوق
-  const getSubtotal = () => {
-    return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
-  };
+  // حساب الإجمالي الكلي (تطابق totallCart في Navbar)
+  const totallCart = cartItems.reduce((total, item) => total + (item.price || 0) * (item.quantity || 0), 0);
 
-  // دالة لحساب العدد الكلي للعناصر في السلة
-  const getTotalItems = () => {
-    return cartItems.reduce((total, item) => total + item.quantity, 0);
-  };
-
-<<<<<<< HEAD
-export const CartContextProvaider = ({children})=>{
-    
-    const [cart , setCart] = useState([])
-
-useEffect(()=>{
-    if(localStorage.getItem("cartData")){
-        setCart(JSON.parse(localStorage.getItem("cartData")))
-        
-    }else{
-        setCart([])
-    }
-} , [])
-    
-    useEffect(()=>{
-    localStorage.setItem("cartData" , JSON.stringify(cart))
-    } , [cart])
+  // حساب طول السلة (تطابق cartLength في Navbar)
+  const cartLength = cartItems.reduce((total, item) => total + (item.quantity || 0), 0);
 
 
-
-function addToCart(product) {
-    const findProduct=cart.find((el)=> el.title === product.title) 
-
-    if (!findProduct) {
-            setCart([...cart , {...product , amount : 1}])
-    }else{
-              findProduct.amount +=1              
-    }
-
-}
-
-function deleteFromCart(product) {
-    const newArr = cart.filter((el)=>  el.title !== product.title)
-    setCart(newArr)
-}
-
-function changeAmount(state , product) {
- if(state === "plus"){
-    ++product.amount
-    setCart([...cart])
-}else{
-    if(product.amount > 0){
-        --product.amount
-        
-        setCart([...cart])
-    }else{
-        deleteFromCart(product)
-    }
- }
-}
-const totallCart = cart.reduce((a , b)=> {
-    return a + (b.price * b.amount)
-} , 0 )
-
-const cartLength = cart.reduce((a , b)=>{return a+b.amount} , 0)
-
-
-
-
-
-
-
-
-return <cartContext.Provider value={{addToCart , cart , deleteFromCart , changeAmount , totallCart , cartLength}}>
-
-{children}
-
-
-</cartContext.Provider>
-
-
-}
-=======
   return (
     <CartContext.Provider
       value={{
-        cartItems,
+        cart: cartItems, // Navbar يتوقع 'cart'
         addToCart,
-        removeFromCart,
-        updateQuantity,
-        getSubtotal,
-        getTotalItems,
+        deleteFromCart, // Navbar يتوقع 'deleteFromCart'
+        changeAmount,   // Navbar يتوقع 'changeAmount'
+        totallCart,     // Navbar يتوقع 'totallCart'
+        cartLength,     // Navbar يتوقع 'cartLength'
       }}
     >
       {children}
