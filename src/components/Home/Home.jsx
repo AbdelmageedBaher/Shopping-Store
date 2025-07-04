@@ -7,7 +7,8 @@ import {Helmet} from "react-helmet";
 import Header from '../Home/Header/Header'
 import MainSection from './MainSection';
 import Slider1 from '../Home/Slider1/Slider1';
-import Slider2 from './Slider2/Slider2';
+import HeaderSlider from './../Categories/HeaderSlider/HeaderSlider';
+import WeekEndDiscount from './WeekEndDiscount';
 
 export default function Home() {
     return(
@@ -17,12 +18,12 @@ export default function Home() {
                 <title>Home</title>
                 <link rel="canonical" href="http://mysite.com/example" />
             </Helmet>
+          <HeaderSlider />
+         <MainSection />
           <SliderProducts />
-          <Header />
-          <MainSection />
-          <Slider1 />
+          <WeekEndDiscount />
           <Products />
-          <Slider2 />
+         <Slider1 /> 
         </div>
     )
 }

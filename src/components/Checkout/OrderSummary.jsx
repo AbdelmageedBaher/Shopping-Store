@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Alert, Button, Modal } from 'react-bootstrap';
-import { useCart } from '../../context/CartContext';
+import { CartContext } from '../../context/CartContext';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import './OrderSummary.css';
+import { useContext } from 'react';
 
 const OrderSummary = () => {
-  const { cartItems, getSubtotal, removeFromCart, updateQuantity } = useCart();
+  const {deleteFromCart,changeAmount, cart ,totallCart} = useContext(CartContext);
 
-  const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal ] = useState(false);
   const [itemToRemove, setItemToRemove] = useState(null);
 
   // استخدام totallCart مباشرة من Context
