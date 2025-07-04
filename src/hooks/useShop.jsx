@@ -8,13 +8,13 @@ import { FaShopify } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
  import { order } from '../components/purchaseOrder/Purchase-order';
 import Loading from '../components/Loading/Loading';
-import { cartContext } from '../context/CartContext';
+import { CartContext } from '../context/CartContext';
 
 
 function useShop() {
 const {allData , apiCategories , getApiSpacificCategory , isLoading  , setIsLoading} = useContext(apiContext)
 const[carantPage , setcarantPge] = useState(1)
-  const {addToCart} = useContext(cartContext)
+  const {addToCart} = useContext(CartContext)
 
           const { handleClick } = order();
 

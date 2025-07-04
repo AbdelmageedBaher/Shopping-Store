@@ -1,9 +1,16 @@
 import { createContext, useEffect, useState } from "react";
 
+export const CartContext = createContext();
 
-export const cartContext = createContext()
+export const CartContextProvider = ({ children }) => {
+  const [cart, setCart] = useState([]);
 
+  function addToCart(product) {
+    setCart([...cart, product]);
+    console.log(product);
+  }
 
+<<<<<<< HEAD
 export const CartContextProvaider = ({children})=>{
     
     const [cart , setCart] = useState([])
@@ -75,3 +82,11 @@ return <cartContext.Provider value={{addToCart , cart , deleteFromCart , changeA
 
 
 }
+=======
+  return (
+    <CartContext.Provider value={{ addToCart, cart }}>
+      {children}
+    </CartContext.Provider>
+  );
+};
+>>>>>>> bd579597a60af1f67dcc3035dde538a6df613e23

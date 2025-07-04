@@ -26,7 +26,7 @@ export default function Checkout() {
   
     return(
 
-        <div className='checkout_container'>
+        <div className='checkout_container '>
       <Container>
       
        {/* Checkout Content */}
