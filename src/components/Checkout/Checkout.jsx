@@ -3,7 +3,15 @@ import './Checkout.css';
 import { Container, Row, Col } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { 
+//   faCreditCard,
+//   faBars, 
+//   faDrumstickBite, 
+//   faCookieBite,    
+//   faCoffee         
+// } from '@fortawesome/free-solid-svg-icons';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCreditCard} from '@fortawesome/free-solid-svg-icons';
 import OrderSummary from './OrderSummary';
 import { Link } from 'react-router-dom';
