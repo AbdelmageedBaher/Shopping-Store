@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useContext } from 'react'; // أضف useContext
 import { Container, Row, Col, Alert, Button, Modal } from 'react-bootstrap';
-import { useCart } from '../../context/CartContext';
+import { CartContext } from '../../context/CartContext'; // تأكد من المسار الصحيح
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import './OrderSummary.css';
 
 const OrderSummary = () => {
-  const { cartItems, getSubtotal, removeFromCart, updateQuantity } = useCart();
+  // *** التعديل هنا: استخدام useContext بشكل صحيح واستخراج المتغيرات الصحيحة ***
+  const { cart, totallCart, deleteFromCart, changeAmount } = useContext(CartContext);
 
   const [showModal, setShowModal] = useState(false);
   const [itemToRemove, setItemToRemove] = useState(null);
