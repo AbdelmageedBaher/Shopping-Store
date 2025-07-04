@@ -1,4 +1,4 @@
-        import React, { useEffect, useRef, useState } from 'react'
+        import React, { useContext, useEffect, useRef, useState } from 'react'
         import './Shop.css'
         import { FaChevronRight } from "react-icons/fa6";
         import { FaChevronLeft } from "react-icons/fa6";
@@ -7,12 +7,15 @@
         import img2 from '../../assets/images/proster-shop.png'
   import useShop from '../../hooks/useShop';
 import Loading from '../Loading/Loading';
+import { cartContext } from '../../context/CartContext';
 
         function Shop() {
 
           
           // start-useShop  
           const { apiCategories , getApiSpacificCategory , carantPage , setcarantPge , pages  , orderProducts , generatedPages , pageRefs  , handlePageClick , handlePrev , handleNext , showAllData, isLoading } = useShop()
+          const {changeAmount , totallCart} = useContext(cartContext)
+          
           // end-useShop  
 
 
@@ -91,12 +94,12 @@ if (isLoading) return <Loading />;
         <div className='price flex gap-2  '>
         <div className='d-flex flex-column'>
         <label htmlFor="from">from</label>
-        <input className='p-2 w-100' disabled type="text" placeholder='0' name="from"/>
+        <input className='p-2 w-100' disabled type="text" value={`${totallCart.toFixed(3)}`} name="from"/>
         </div>
         <span>-</span>
         <div className='d-flex flex-column'>
         <label htmlFor="to">to</label>
-        <input className='p-2 w-100' disabled type="text" placeholder='0'  name="to" />
+        <input className='p-2 w-100' disabled type="text"  value={`${totallCart.toFixed(0)}`}  name="to" />
         </div>
         </div>
         {/* end form-price*/}

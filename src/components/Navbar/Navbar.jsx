@@ -1,10 +1,47 @@
 // templates/component/Navbar.js
 
-import React from 'react';
+import React, { useContext } from 'react';
 import './Navbar.css';
 import { Link } from 'react-router-dom';
+import { IoMdCloseCircleOutline } from "react-icons/io";
+import { cartContext } from '../../context/CartContext';
 
 export default function Navbar() {
+
+const {cart , deleteFromCart , changeAmount , totallCart , cartLength} = useContext(cartContext)
+
+const showDataCart = cart && cart.map((val , index)=>{
+ 
+return(
+  <div key={index} className="card">
+  <div className="row g-0">
+    <div className="col-md-4">
+      <img className='w-100' src={val.thumbnail} />
+    </div>
+    <div className="col-md-8">
+      <div className="card-body position-relative">
+        <h5 className="card-title">{val.title}</h5>
+        <p className="card-text"> ${val.price.toFixed(0) * val.amount}</p>
+        <div className="card-text flex">
+          <button onClick={()=> changeAmount('plus' , val)} className='w-50 btn btn-dark p-0'>+</button>
+          <p className='w-50 flex m-0 fs-5 f'>{val.amount}</p>
+          <button onClick={()=> changeAmount('min' , val)} className='w-50 btn btn-dark p-0'>-</button>
+        </div>
+          <div onClick={()=> deleteFromCart(val)} className='position-absolute top-0 end-0 p-2 fs-4 '>
+        <IoMdCloseCircleOutline/>
+          </div>
+      </div>
+      
+    </div>
+  
+  </div>
+</div>
+
+)
+
+})
+
+
     return(
      <>
      <div className="NavPart-1 d-flex justify-content-center  align-items-center">
@@ -77,8 +114,56 @@ export default function Navbar() {
 </clipPath>
 </defs>
 </svg>
-<h6 className='mb-0'>$0.00</h6>
-<div className='position-relative'>
+<h6 className='mb-0'>${totallCart.toFixed(2)}</h6>
+
+
+{/* start-cart */}
+
+<div className="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><div className='position-relative'>
+  <svg width="42" height="43" viewBox="0 0 42 43" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect y="0.5" width="42" height="42" rx="21" fill="#FFF1EE"/>
+<g clip-path="url(#clip0_1_7737)">
+<path d="M21.0342 14.411C20.5242 14.411 20.0511 14.5385 19.6147 14.7935C19.1784 15.0485 18.8327 15.3942 18.5777 15.8305C18.3227 16.2668 18.1952 16.74 18.1952 17.25H16.7502C16.7502 16.4793 16.9401 15.7682 17.3197 15.1165C17.6994 14.4648 18.2151 13.9492 18.8667 13.5695C19.5184 13.1898 20.2296 13 21.0002 13C21.7709 13 22.4821 13.1898 23.1337 13.5695C23.7854 13.9492 24.3011 14.4648 24.6807 15.1165C25.0604 15.7682 25.2502 16.4793 25.2502 17.25H28.0382C28.4462 17.25 28.7919 17.3945 29.0752 17.6835C29.3586 17.9725 29.5002 18.3267 29.5002 18.746C29.5002 18.8367 29.4946 18.9217 29.4832 19.001L27.9022 28.147C27.8116 28.6797 27.5622 29.1217 27.1542 29.473C26.7462 29.8243 26.2759 30 25.7432 30H16.2572C15.7246 30 15.2542 29.8243 14.8462 29.473C14.4382 29.1217 14.1889 28.6797 14.0982 28.147L12.5172 19.018C12.4492 18.61 12.5314 18.236 12.7637 17.896C12.9961 17.556 13.3106 17.3463 13.7072 17.267C13.7866 17.2557 13.8716 17.25 13.9622 17.25H23.8732C23.8732 16.74 23.7457 16.2668 23.4907 15.8305C23.2357 15.3942 22.8901 15.0485 22.4537 14.7935C22.0174 14.5385 21.5442 14.411 21.0342 14.411ZM28.0382 18.661H13.9622C13.9509 18.661 13.9339 18.6837 13.9112 18.729V18.763L15.4922 27.909C15.5262 28.0903 15.6056 28.2433 15.7302 28.368C15.8549 28.4927 16.0022 28.5607 16.1722 28.572L16.2572 28.589H25.7432C25.9132 28.589 26.0691 28.5352 26.2107 28.4275C26.3524 28.3198 26.4459 28.1753 26.4912 27.994L28.0892 18.746C28.0892 18.7007 28.0779 18.678 28.0552 18.678L28.0382 18.661Z" fill="#EA2B0F"/>
+</g>
+<defs>
+<clipPath id="clip0_1_7737">
+<rect width="17" height="17" fill="white" transform="matrix(1 0 0 -1 12.5 30)"/>
+</clipPath>
+</defs>
+</svg>
+<span className='badge'>{cartLength}</span>
+</div></div>
+<div className="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <div className="offcanvas-header">
+    <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+{cart.length? 
+<>
+  <div className="offcanvas-body">
+{/* cards-start */}
+{showDataCart}
+{/* cards-end */}
+
+<hr />
+<div className='d-flex justify-content-around border'>
+  <b className='fs-4 m-0'>totall:</b>
+  <p className='fs-5 m-0'>${totallCart.toFixed(2)}</p>
+</div>
+<div>
+  <button className='btn btn-dark w-100 mt-4  '>checkout</button>
+
+</div>
+
+  </div>
+
+</>
+:
+<div className='text-uppercase text-center mt-5 fs-5 alert alert-danger mx-4 '>There is No Products</div>
+}
+</div>
+
+
+{/* <div className='position-relative'>
   <svg width="42" height="43" viewBox="0 0 42 43" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect y="0.5" width="42" height="42" rx="21" fill="#FFF1EE"/>
 <g clip-path="url(#clip0_1_7737)">
@@ -91,7 +176,18 @@ export default function Navbar() {
 </defs>
 </svg>
 <span className='badge'>0</span>
-</div>
+</div> */}
+
+
+{/* end-cart */}
+
+
+
+
+
+
+
+
       </div>
 
       </div>  
@@ -158,7 +254,7 @@ Bakery
           Beverages</Link>
         </li>
         <li>
-          <Link to="/contact">Blog</Link>
+          <Link to="/blog">Blog</Link>
         </li>
         <li>
           <Link to="/contact">Contact</Link>
