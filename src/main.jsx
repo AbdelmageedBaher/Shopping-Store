@@ -9,6 +9,12 @@ import { ApiContextProvider } from './context/apiContext.jsx';
 import { CartContextProvider } from './context/CartContext.jsx';
 import App from './App.jsx';
 
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
+
+
 const queryClient = new QueryClient();
 
 createRoot(document.getElementById('root')).render(
