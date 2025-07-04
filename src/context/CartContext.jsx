@@ -61,13 +61,89 @@ export const CartContextProvider = ({ children }) => {
     );
   };
 
-  // حساب الإجمالي الكلي (تطابق totallCart في Navbar)
-  const totallCart = cartItems.reduce((total, item) => total + (item.price || 0) * (item.quantity || 0), 0);
+  // دالة لحساب الإجمالي الفرعي لسلة التسوق
+  const getSubtotal = () => {
+    return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+  };
 
-  // حساب طول السلة (تطابق cartLength في Navbar)
-  const cartLength = cartItems.reduce((total, item) => total + (item.quantity || 0), 0);
+  // دالة لحساب العدد الكلي للعناصر في السلة
+  const getTotalItems = () => {
+    return cartItems.reduce((total, item) => total + item.quantity, 0);
+  };
+
+<<<<<<< HEAD
+export const CartContextProvaider = ({children})=>{
+    
+    const [cart , setCart] = useState([])
+
+useEffect(()=>{
+    if(localStorage.getItem("cartData")){
+        setCart(JSON.parse(localStorage.getItem("cartData")))
+        
+    }else{
+        setCart([])
+    }
+} , [])
+    
+    useEffect(()=>{
+    localStorage.setItem("cartData" , JSON.stringify(cart))
+    } , [cart])
 
 
+
+function addToCart(product) {
+    const findProduct=cart.find((el)=> el.title === product.title) 
+
+    if (!findProduct) {
+            setCart([...cart , {...product , amount : 1}])
+    }else{
+              findProduct.amount +=1              
+    }
+
+}
+
+function deleteFromCart(product) {
+    const newArr = cart.filter((el)=>  el.title !== product.title)
+    setCart(newArr)
+}
+
+function changeAmount(state , product) {
+ if(state === "plus"){
+    ++product.amount
+    setCart([...cart])
+}else{
+    if(product.amount > 0){
+        --product.amount
+        
+        setCart([...cart])
+    }else{
+        deleteFromCart(product)
+    }
+ }
+}
+const totallCart = cart.reduce((a , b)=> {
+    return a + (b.price * b.amount)
+} , 0 )
+
+const cartLength = cart.reduce((a , b)=>{return a+b.amount} , 0)
+
+
+
+
+
+
+
+
+return <cartContext.Provider value={{addToCart , cart , deleteFromCart , changeAmount , totallCart , cartLength}}>
+
+{children}
+
+
+</cartContext.Provider>
+
+
+}
+=======
   return (
     <CartContext.Provider
       value={{

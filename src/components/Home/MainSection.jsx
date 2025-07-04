@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import { Card } from "react-bootstrap";
+
 import useProducts from "../../hooks/useQuerypProducts";
 import Loading from "../Loading/Loading";
 import StarRatings from "react-star-ratings";

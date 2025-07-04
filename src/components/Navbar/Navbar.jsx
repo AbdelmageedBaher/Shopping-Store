@@ -1,17 +1,16 @@
-// templates/component/Navbar.js
 
-import React, { useContext } from 'react';
+import  { useContext } from 'react';
 import './Navbar.css';
 import { Link } from 'react-router-dom';
 import { IoMdCloseCircleOutline } from "react-icons/io";
-import { cartContext } from '../../context/CartContext';
+import { CartContext } from '../../context/CartContext';
 
 export default function Navbar() {
 
-const {cart , deleteFromCart , changeAmount , totallCart , cartLength} = useContext(cartContext)
+const {cart , deleteFromCart , changeAmount , totallCart , cartLength} = useContext(CartContext)
 
 const showDataCart = cart && cart.map((val , index)=>{
- 
+
 return(
   <div key={index} className="card">
   <div className="row g-0">
