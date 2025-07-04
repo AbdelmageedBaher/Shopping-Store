@@ -8,7 +8,7 @@ import { IoMdClose } from "react-icons/io";
 import { Modal, Button, ModalFooter } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import useProducts from "../../hooks/useQuerypProducts";
-import { cartContext } from "../../context/CartContext";
+import { CartContext } from "../../context/CartContext";
 
 
 const ProductContext = createContext()
@@ -23,7 +23,7 @@ function PurchaseOrder({ children }) {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [qty, setQty] = useState(1);
   const { data: allProducts = [] } = useProducts();
-  const {addToCart} = useContext(cartContext)
+  const {addToCart} = useContext(CartContext)
 
     const handleClick = (product) => {
     setSelectedProduct(product);
