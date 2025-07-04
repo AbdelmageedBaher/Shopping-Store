@@ -67,7 +67,7 @@ function PurchaseOrder({ children }) {
 
           <div className="row align-items-start mt-4">
             <div className="col-md-6">
-              <img className="img-fluid"  src={selectedProduct.images}
+              <img className="img-fluid"  src={selectedProduct.images[0]}
               alt={selectedProduct.name}
               style={{
                 width: "646px",

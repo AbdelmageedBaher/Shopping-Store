@@ -9,11 +9,11 @@
   line-height: 18px;
   letter-spacing: -0.1px;
   color: #fff; 
- 
 }
 .NavPart-2 {
   height: 40px;
   border-bottom: 1px solid var(--opasty-color);
+  padding: 0 120px 1px 360px;
   padding: 0 130px 1px 130px;
 }
 .NavPart-2 .Part-left{
@@ -42,6 +42,7 @@
 }
 .NavPart-3{
   height: 93px;
+  padding: 30px 150px 0 360px;
   padding: 30px 130px 0 130px;
 }
 .NavPart-3 .logo{
@@ -91,6 +92,9 @@
   letter-spacing: -0.1px;
 }
 .NavPart-4{
+  padding: 30px 150px 0 360px;
+}
+.leftPart{
   padding: 30px 130px 0 130px;
 }
  .NavPart-4 .leftPart{
@@ -115,7 +119,6 @@
   left: 45px;  
   height: 18px;
 }
-/* /////////////////////////////////////////////////// */
 .navbar{
   color: #3E445A;
   padding: 1rem;

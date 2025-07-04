@@ -1,55 +1,44 @@
-import React, { useContext, useEffect, useState } from 'react'; 
-import { Container, Row, Col, Alert, Button } from 'react-bootstrap'; 
-import { CartContext } from '../../context/CartContext'; 
-import { Link } from 'react-router-dom'; 
+import React, { useState, useEffect, useContext } from 'react'; // أضف useContext
+import { Container, Row, Col, Alert, Button, Modal } from 'react-bootstrap';
+import { CartContext } from '../../context/CartContext'; // تأكد من المسار الصحيح
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import './OrderSummary.css';
 
-
 const OrderSummary = () => {
-  
-  const { cart } = useContext(CartContext); 
+  // *** التعديل هنا: استخدام useContext بشكل صحيح واستخراج المتغيرات الصحيحة ***
+  const { cart, totallCart, deleteFromCart, changeAmount } = useContext(CartContext);
 
-  
-  const [localCartItems, setLocalCartItems] = useState([]);
+  const [showModal, setShowModal] = useState(false);
+  const [itemToRemove, setItemToRemove] = useState(null);
 
-  
-  useEffect(() => {
-    const processedItems = cart.reduce((acc, product) => {
-      const existingItem = acc.find(item => item.id === product.id);
-      if (existingItem) {
-        existingItem.quantity += 1;
-      } else {
-        acc.push({
-          id: product.id,
-          title: product.title || product.name,
-          price: product.price,
-          thumbnail: product.thumbnail || product.image,
-          quantity: 1
-        });
-      }
-      return acc;
-    }, []);
-    setLocalCartItems(processedItems);
-  }, [cart]); 
-
-  const removeFromLocalCart = (productId) => {
-    setLocalCartItems(prevItems => prevItems.filter(item => item.id !== productId));
-  };
-
-  const updateLocalQuantity = (productId, newQuantity) => {
-    setLocalCartItems(prevItems =>
-      prevItems.map(item =>
-        item.id === productId ? { ...item, quantity: newQuantity } : item
-      ).filter(item => item.quantity > 0)
-    );
-  };
-
-  const subtotal = localCartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+  // استخدام totallCart مباشرة من Context
+  const subtotal = totallCart;
   const shipping = 0;
   const total = subtotal + shipping;
   const taxes = 0;
 
-  if (localCartItems.length === 0) {
+  const handleRemoveClick = (productId, productName) => {
+    setItemToRemove({ id: productId, name: productName });
+    setShowModal(true);
+  };
+
+  const confirmRemoval = () => {
+    if (itemToRemove) {
+      deleteFromCart(itemToRemove.id); // استخدام deleteFromCart من Context
+      setShowModal(false);
+      setItemToRemove(null);
+    }
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+    setItemToRemove(null);
+  };
+
+  // استخدام 'cart' بدلاً من 'cartItems'
+  if (cart.length === 0) {
     return (
       <Container className="mt-5 text-center">
         <Alert variant="info">
@@ -63,48 +52,54 @@ const OrderSummary = () => {
   return (
     <Container className="order-summary-container mt-5">
       <h2 className="mb-4 text-center">Order Summary</h2>
-      {/* قسم المنتجات */}
       <div className="order-items-list">
-        {localCartItems.map(item => (
+        {/* استخدام 'cart' بدلاً من 'cartItems' */}
+        {cart.map(item => (
           <Row key={item.id} className="order-item-row align-items-center mb-3 py-2 border-bottom">
             <Col xs={2} className="item-image-col">
               <div className="item-image-wrapper">
                 <img
                   src={item.thumbnail}
-                  alt={item.title}
+                  alt={item.title || 'Product Image'} // أضف alt للنص البديل
                   className="item-thumbnail"
                   onError={(e) => {
                     e.target.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64"><rect width="100%" height="100%" fill="%23f0f0f0"/><text x="50%" y="50%" fill="%23aaa" font-family="sans-serif" font-size="10" text-anchor="middle" dominant-baseline="middle">No Image</text></svg>';
                   }}
                 />
+                {/* استخدام item.quantity */}
                 <span className="item-quantity-badge">{item.quantity}</span>
               </div>
             </Col>
-            <Col xs={5} className="item-name-col">
+            <Col xs={4} className="item-name-col">
               <span className="item-name">{item.title}</span>
             </Col>
             <Col xs={3} className="item-quantity-control d-flex align-items-center">
-              <Button variant="outline-secondary" size="sm" onClick={( ) => updateLocalQuantity(item.id, item.quantity - 1)} disabled={item.quantity <= 1}>-</Button>
+              {/* استخدام changeAmount لتقليل الكمية */}
+              <Button variant="outline-secondary" size="sm" onClick={( ) => changeAmount('min', item)} disabled={item.quantity <= 1}>-</Button>
+              {/* استخدام item.quantity */}
               <span className="mx-2">{item.quantity}</span>
-              <Button variant="outline-secondary" size="sm" onClick={() => updateLocalQuantity(item.id, item.quantity + 1)}>+</Button>
+              {/* استخدام changeAmount لزيادة الكمية */}
+              <Button variant="outline-secondary" size="sm" onClick={() => changeAmount('plus', item)}>+</Button>
             </Col>
-            <Col xs={2} className="item-price-col text-end">
+            <Col xs={3} className="item-price-col text-end" style={{ display: "flex" }}>
+              {/* فحص item.price قبل toFixed */}
               <span className="item-price">${(item.price * item.quantity).toFixed(2)}</span>
-              <Button variant="link" className="text-danger p-0 ms-2" onClick={() => removeFromLocalCart(item.id)}>
-                <i className="bi bi-trash"></i>
+              <Button variant="link" className="text-danger p-0 ms-2" onClick={() => handleRemoveClick(item.id, item.title)}>
+                <FontAwesomeIcon icon={faTrash} />
               </Button>
             </Col>
           </Row>
         ))}
       </div>
 
-      {/* قسم الملخص (Subtotal, Shipping, Total) */}
       <div className="order-summary-details mt-4 p-3 border rounded">
         <Row className="summary-line mb-2">
           <Col xs={8}>
-            <span className="summary-label">Subtotal · {localCartItems.length} items</span>
+            {/* استخدام cart.length */}
+            <span className="summary-label">Subtotal · {cart.length} items</span>
           </Col>
           <Col xs={4} className="text-end">
+            {/* استخدام subtotal مباشرة (وهو totallCart من Context) */}
             <span className="summary-value">${subtotal.toFixed(2)}</span>
           </Col>
         </Row>
@@ -136,6 +131,24 @@ const OrderSummary = () => {
           </Row>
         )}
       </div>
+
+      {/* Modal  */}
+      <Modal show={showModal} onHide={handleCloseModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>Confirm Removal</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          Are you sure you want to remove "<strong>{itemToRemove?.name}</strong>" from your cart?
+        </Modal.Body>
+        <Modal.Footer style={{ alignItems: "center", justifyContent: "center" }}>
+          <Button variant="secondary" onClick={handleCloseModal}>
+            Cancel
+          </Button>
+          <Button variant="danger" onClick={confirmRemoval}>
+            Remove
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </Container>
   );
 };
