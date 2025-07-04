@@ -3,7 +3,7 @@ import './Checkout.css';
 import { Container, Row, Col } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { 
 //   faCreditCard,
 //   faBars, 
@@ -26,7 +26,7 @@ export default function Checkout() {
   
     return(
 
-        <div className='checkout_container'>
+        <div className='checkout_container '>
       <Container>
       
        {/* Checkout Content */}

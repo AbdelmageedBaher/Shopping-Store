@@ -8,11 +8,13 @@ import { FaShopify } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
  import { order } from '../components/purchaseOrder/Purchase-order';
 import Loading from '../components/Loading/Loading';
+import { CartContext } from '../context/CartContext';
 
 
 function useShop() {
 const {allData , apiCategories , getApiSpacificCategory , isLoading  , setIsLoading} = useContext(apiContext)
 const[carantPage , setcarantPge] = useState(1)
+  const {addToCart} = useContext(CartContext)
 
           const { handleClick } = order();
 
@@ -81,9 +83,9 @@ const showAllData = orderProducts?.map((val , index)=>{
     
       
       
-          <div  className="card" onClick={() => handleClick(val)} style={{ cursor: 'pointer' }}>
+          <div  className="card">
           <div className='buying flex '>
-            <div className='px-2 gap-3 py-1'>
+            <div onClick={ ()=> addToCart(val)} className='px-2 gap-3 py-1'>
             <FaShopify/>
             </div>
             <div className='px-2 gap-3 py-1'>
@@ -91,7 +93,7 @@ const showAllData = orderProducts?.map((val , index)=>{
             </div>
           </div>
           <span className='z-3 flex px-2 py-1'>%{val?.discountPercentage}</span>
-          <div >
+          <div onClick={() => handleClick(val)} style={{ cursor: 'pointer' }}>
           <img className='card-img'  src={val?.thumbnail} alt="" />
           </div>
           <div className='card-body'>

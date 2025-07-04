@@ -253,6 +253,4 @@ cursor: pointer;
 }
 .Shop .pagination span.open{
     background-color: var(--main-color);
-    
-    
 }

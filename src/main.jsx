@@ -4,18 +4,24 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './index.css'
-import App from './App.jsx'
+// import App from './App.jsx'
 import { ApiContextProvider } from './context/apiContext.jsx';
+import { CartContextProvider } from './context/CartContext.jsx';
+import App from './App.jsx';
 
 const queryClient = new QueryClient();
 
 createRoot(document.getElementById('root')).render(
-<>
-
+  
     <QueryClientProvider client={queryClient}>
-    <ApiContextProvider>
-        <App />
-    </ApiContextProvider>
-    </QueryClientProvider> 
-</>
-)
+      <ApiContextProvider> 
+        <CartContextProvider>
+          <App />
+        </CartContextProvider>
+      </ApiContextProvider>
+    </QueryClientProvider>
+  
+);
+
+// temporary edit to trigger commit
+

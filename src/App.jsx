@@ -34,7 +34,7 @@ function App() {
 
  return (
     <PurchaseOrder>
-      <RouterProvider router={routes} />
+      <RouterProvider router={routes}></RouterProvider>
     </PurchaseOrder>
   );
 }

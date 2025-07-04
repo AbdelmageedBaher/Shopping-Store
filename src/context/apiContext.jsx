@@ -16,14 +16,15 @@ export const ApiContextProvider =({children})=>{
 
 
 
-   async function getAllData(){
-    setIsLoading(true)
-    let {data} = await axios.get(url) ;
-    setAllData(data.products)
-    setIsLoading(false)
-    
-    
-}
+  async function getAllData() {
+    setIsLoading(true);
+    const { data } = await axios.get(url);
+    const sorted = [...data.products].sort((a, b) =>
+      a.title.localeCompare(b.title)
+    );
+    setAllData(sorted);
+    setIsLoading(false);
+  }
 async function GetAllCategories(){
     
     let {data} = await axios.get(`${url}/categories`) ;
@@ -31,9 +32,13 @@ async function GetAllCategories(){
     setApiCategories(data)
 }
 
+
 async function getApiSpacificCategory(CatUrl) {
-    let {data} = await axios.get(CatUrl)
-    setAllData(data.products)
+  const { data } = await axios.get(CatUrl);
+  const sorted = [...data.products].sort((a, b) =>
+    a.title.localeCompare(b.title)
+  );
+  setAllData(sorted);
 }
 
 
