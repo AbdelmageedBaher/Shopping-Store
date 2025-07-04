@@ -14,9 +14,10 @@ import { CartContext } from '../context/CartContext';
 function useShop() {
 const {allData , apiCategories , getApiSpacificCategory , isLoading  , setIsLoading} = useContext(apiContext)
 const[carantPage , setcarantPge] = useState(1)
-  const {addToCart} = useContext(CartContext)
+  const {addToCart , changeAmount} = useContext(CartContext)
 
           const { handleClick } = order();
+
 
 
     
@@ -83,7 +84,7 @@ const showAllData = orderProducts?.map((val , index)=>{
     
       
       
-          <div  className="card">
+          <div  className="card" >
           <div className='buying flex '>
             <div onClick={ ()=> addToCart(val)} className='px-2 gap-3 py-1'>
             <FaShopify/>
@@ -102,9 +103,9 @@ const showAllData = orderProducts?.map((val , index)=>{
           <small className='flex gap-1'><FaStar/><FaStar/><FaStar/><FaStar/><CiStar/><b>{Math.trunc(val?.rating)} review</b></small>
           <b>${val?.price}</b>
           <div className='flex btn-group mt-2'>
-            <button className='btn flex'>-</button>
-            <p className='m-0 w-100 flex'>0</p>
-            <button className='btn flex'>+</button>
+            <button onClick={()=> changeAmount('min' , val)} className='btn flex'>-</button>
+            <p className='m-0 w-100 flex'>{val.amount}</p>
+            <button onClick={()=> changeAmount('plus' , val)} className='btn flex'>+</button>
           </div>
           </div>
           </div>
@@ -114,7 +115,7 @@ const showAllData = orderProducts?.map((val , index)=>{
         // end-fetch-allData
         
         
-        return{allData , apiCategories , getApiSpacificCategory , carantPage , setcarantPge , productPrePage , pages , startIndex , finishIndex , orderProducts , generatedPages , pageRefs ,updateActiveClass , handlePageClick , handlePrev , handleNext , showAllData , isLoading}
+        return{allData , apiCategories , getApiSpacificCategory , carantPage , setcarantPge , productPrePage , pages , startIndex , finishIndex , orderProducts , generatedPages , pageRefs ,updateActiveClass , handlePageClick , handlePrev , handleNext , showAllData , isLoading , changeAmount}
         
       }
       

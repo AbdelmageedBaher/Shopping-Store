@@ -1,12 +1,4 @@
 
-:root{
-  --font-family:"Inter", sans-serif;
-  --main-color:#35AFA0 ;
-  --body-color: #D51243 ;
-  --light-color: #FFFFFF;
-  --dark-color:#202435;
-  --opasty-color:#9B9BB4;
-}
 .NavPart-1{
   background-color: var(--main-color);
   padding: 9px 389.5px 9px 389.5px;

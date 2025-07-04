@@ -49,8 +49,8 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div class="FooterPart2 col-12 col-s-12">
-        <div class="feature">
+      <div className="FooterPart2 col-12 col-s-12">
+        <div className="feature">
           <svg
             width="19.5"
             height="22"
@@ -77,7 +77,7 @@ export default function Footer() {
           </svg>
           <span>Everyday fresh products</span>
         </div>
-        <div class="feature">
+        <div className="feature">
           <svg
             width="22"
             height="15.2"
@@ -104,7 +104,7 @@ export default function Footer() {
           </svg>
           <span>Free delivery for order over $70</span>
         </div>
-        <div class="feature">
+        <div className="feature">
           <svg
             width="21"
             height="22"
@@ -131,7 +131,7 @@ export default function Footer() {
           </svg>
           <span>Daily Mega Discounts</span>
         </div>
-        <div class="feature">
+        <div className="feature">
           <svg
             width="22"
             height="22"
@@ -160,10 +160,10 @@ export default function Footer() {
         </div>
       </div>
 
-      <div class="FooterPart3 col-12 col-s-12">
-        <div class="footer-top">
-          <div class="footer-columns">
-            <div class="footer-col col-2">
+      <div className="FooterPart3 col-12 col-s-12">
+        <div className="footer-top">
+          <div className="footer-columns">
+            <div className="footer-col col-2">
               <h4>FRUIT & VEGETABLES</h4>
               <ul>
                 <li>Fresh Vegetables</li>
@@ -175,7 +175,7 @@ export default function Footer() {
                 <li>Party Trays</li>
               </ul>
             </div>
-            <div class="footer-col col-2">
+            <div className="footer-col col-2">
               <h4>BREAKFAST & DAIRY</h4>
               <ul>
                 <li>Milk & Flavoured Milk</li>
@@ -188,7 +188,7 @@ export default function Footer() {
                 <li>Yogurt</li>
               </ul>
             </div>
-            <div class="footer-col col-2">
+            <div className="footer-col col-2">
               <h4>MEAT & SEAFOOD</h4>
               <ul>
                 <li>Breakfast Sausage</li>
@@ -202,7 +202,7 @@ export default function Footer() {
                 <li>Farm Raised Fillets</li>
               </ul>
             </div>
-            <div class="footer-col col-2">
+            <div className="footer-col col-2">
               <h4>BEVERAGES</h4>
               <ul>
                 <li>Water</li>
@@ -216,7 +216,7 @@ export default function Footer() {
                 <li>Wine</li>
               </ul>
             </div>
-            <div class="footer-col col-2">
+            <div className="footer-col col-2">
               <h4>BREADS & BAKERY</h4>
               <ul>
                 <li>Milk & Flavoured Milk</li>
@@ -232,9 +232,9 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div class="footerPart4">
+      <div className="footerPart4">
         <div className="containr">
-          <div class="contact-info d-flex col-6">
+          <div className="contact-info d-flex col-6">
             <svg
               width="40"
               height="40"
@@ -268,17 +268,17 @@ export default function Footer() {
               </defs>
             </svg>
             <div className="countiner">
-              <p class="phone">8 800 555-55</p>
+              <p className="phone">8 800 555-55</p>
               <p className="opacity-50">Working 8:00 - 22:00</p>
             </div>
           </div>
           <div className="footerPart4-right d-flex col-6">
-            <div class="app-download d-flex">
+            <div className="app-download d-flex">
               <div>
                 <p>Download App on Mobile:</p>
                 <p>15% discount on your first purchase</p>
               </div>
-              <div class="store-icons">
+              <div className="store-icons">
                 <img
                   className="ms-1 me-1"
                   src="src\assets\images\google play.png"
@@ -288,7 +288,7 @@ export default function Footer() {
               </div>
             </div>
 
-            <div class="social-icons">
+            <div className="social-icons">
               <a href="#">
                 <svg
                   width="34"
@@ -371,11 +371,11 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div class="footer-legal">
+      <div className="footer-legal">
         <p className="col-4 ">
           Copyright 2025 © All rights reserved by Blackrise Theme
         </p>
-        <ul class="footer-links col-4">
+        <ul className="footer-links col-4">
           <li>
             <a href="#">Privacy Policy</a>
           </li>
@@ -386,7 +386,7 @@ export default function Footer() {
             <a href="#">Cookie</a>
           </li>
         </ul>
-        <div class="payment-icons ps-3 col-4">
+        <div className="payment-icons ps-3 col-4">
           <img src="src\assets\images\payment-icons.png" alt="payment-icons" />
         </div>
       </div>
