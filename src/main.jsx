@@ -9,6 +9,7 @@ import { ApiContextProvider } from './context/apiContext.jsx';
 import React from 'react';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.min.js';
 import { CartContextProvaider } from './context/CartContext.jsx';
 
 const queryClient = new QueryClient();
