@@ -1,4 +1,3 @@
-
 import useProducts from "../../hooks/useQuerypProducts";
 import Loading from "../Loading/Loading";
 import StarRatings from "react-star-ratings";
@@ -13,112 +12,87 @@ const MainSection = () => {
   }
 
   return (
-    <div>
-      <div className="d-flex container border border-danger border-3 rounded-3 p-0 my-5">
-        {data.slice(20, 25).map((prod, id) => {
-          return (
-            <div key={prod.id} className="border-end">
-              <div>
-                <p
-                  style={{
-                    backgroundColor: "#35AFA0",
-                    width: "55px",
-                    height: "30px",
-                  }}
-                  className="rounded-3 text-center text-white my-2 mx-2"
-                >
-                  {prod.discountPercentage}%
-                </p>
-                <img src={prod.images} style={{ width: "100%" }} />
-                <h1
-                  style={{
-                    color: "#202435",
-                    fontSize: "20px",
-                    fontWeight: "normal",
-                  }}
-                  className="text-center"
-                >
-                  {prod.title}
-                </h1>
+    <div className="container my-5">
+      <div className="d-flex flex-wrap border border-danger border-3 rounded-3 p-3 gap-3">
+        {data.slice(20, 25).map((prod) => (
+          <div
+            key={prod.id}
+            className="p-2"
+            style={{
+              flex: "1 1 200px", 
+              maxWidth: "250px",
+            }}
+          >
+            <div className="h-100 bg-white rounded-3 shadow-sm p-2">
+              <p
+                style={{
+                  backgroundColor: "#35AFA0",
+                  width: "55px",
+                  height: "30px",
+                }}
+                className="rounded-3 text-center text-white mb-2"
+              >
+                {prod.discountPercentage}%
+              </p>
 
-                <p style={{ color: "#00B853" }} className="text-center">
-                  {prod.stock} In Stock
-                </p>
-                <div className="text-center pt-3 d-flex justify-content-between px-3">
-                  <StarRatings
-                    rating={prod.rating}
-                    starRatedColor="#ffd700"
-                    starDimension="25px"
-                    starSpacing="2px"
-                  />
-                  <p>{Math.trunc(prod.rating)} review</p>
-                </div>
-                <p
-                  style={{ color: "#D51243", fontWeight: "bold" }}
-                  className="text-center"
-                >
-                  {prod.price}$
-                </p>
-                <div
-                  style={{
-                    backgroundColor: "#9B9BB4",
-                    width: "75%",
-                    height: "6px",
-                  }}
-                  className="rounded-3 mx-auto"
-                ></div>
-                <p className="text-center" style={{ color: "#202435" }}>
-                  the available products:{" "}
-                  <span
-                    style={{
-                      color: "#35AFA0",
-                      fontWeight: "bold",
-                      fontSize: "20px",
-                    }}
-                  >
-                    {prod.stock}
-                  </span>
-                </p>
+              <img
+                src={prod.images}
+                className="img-fluid rounded mb-2"
+                alt={prod.title}
+                style={{
+                  height: "150px",
+                  objectFit: "cover",
+                  width: "100%",
+                }}
+              />
+
+              <h6 className="text-center" style={{ color: "#202435" }}>
+                {prod.title}
+              </h6>
+
+              <p className="text-success text-center">{prod.stock} In Stock</p>
+
+              <div className="d-flex justify-content-between align-items-center px-2">
+                <StarRatings
+                  rating={prod.rating}
+                  starRatedColor="#ffd700"
+                  starDimension="20px"
+                  starSpacing="2px"
+                />
+                <small>{Math.trunc(prod.rating)} reviews</small>
               </div>
+
+              <p
+                className="text-center fw-bold mt-2"
+                style={{ color: "#D51243" }}
+              >
+                {prod.price}$
+              </p>
+
+              <div
+                className="rounded-3 mx-auto my-2"
+                style={{
+                  backgroundColor: "#9B9BB4",
+                  width: "75%",
+                  height: "6px",
+                }}
+              ></div>
+
+              <p className="text-center" style={{ color: "#202435" }}>
+                the available products:{" "}
+                <span
+                  style={{
+                    color: "#35AFA0",
+                    fontWeight: "bold",
+                    fontSize: "20px",
+                  }}
+                >
+                  {prod.stock}
+                </span>
+              </p>
             </div>
-          );
-        })}
-      </div>
-      <div className="d-flex justify-content-between container">
-        <div className="m-auto text-center container position-relative">
-          <img src={main1} className="w-100 position-relative rounded-3" />
-          <div className="position-absolute top-50 start-0  translate-middle-y ps-5 text-start">
-            <h1 style={{ color: "var(--dark-color)", fontWeight: "bold" }}>
-              The freshest <br />
-              milk products
-            </h1>
-            <p style={{ color: "#9B9BB4" }}>A family place for grocery</p>
-            <button
-              className="rounded-pill px-4 border border-none py-2 text-white"
-              style={{ backgroundColor: "#ED174A" }}
-            >
-              shop Now
-            </button>
           </div>
-        </div>
-        <div className="m-auto text-center container position-relative">
-          <img src={main2} className="w-100 position-relative rounded-3" />
-          <div className="position-absolute top-50 start-0  translate-middle-y ps-5 text-start">
-            <h1 style={{ color: "var(--dark-color)", fontWeight: "bold" }}>
-              Yogurt with <br />
-              Delicious Fruit
-            </h1>
-            <p style={{ color: "#9B9BB4" }}>
-              A different kind of grocery store
-            </p>
-            <button
-              className="rounded-pill px-4 border border-none py-2 text-white"
-              style={{ backgroundColor: "#ED174A" }}
-            >
-              shop Now
-            </button>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );
