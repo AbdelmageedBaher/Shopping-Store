@@ -1,55 +1,44 @@
-import React, { useContext, useEffect, useState } from 'react'; 
-import { Container, Row, Col, Alert, Button } from 'react-bootstrap'; 
-import { CartContext } from '../../context/CartContext'; 
-import { Link } from 'react-router-dom'; 
+import React, { useState } from 'react';
+import { Container, Row, Col, Alert, Button, Modal } from 'react-bootstrap';
+import { useCart } from '../../context/CartContext';
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
+
 import './OrderSummary.css';
 
 
+
 const OrderSummary = () => {
-  
-  const { cart } = useContext(CartContext); 
+  const { cartItems, getSubtotal, removeFromCart, updateQuantity } = useCart();
 
-  
-  const [localCartItems, setLocalCartItems] = useState([]);
+  const [showModal, setShowModal] = useState(false);
+  const [itemToRemove, setItemToRemove] = useState(null);
 
-  
-  useEffect(() => {
-    const processedItems = cart.reduce((acc, product) => {
-      const existingItem = acc.find(item => item.id === product.id);
-      if (existingItem) {
-        existingItem.quantity += 1;
-      } else {
-        acc.push({
-          id: product.id,
-          title: product.title || product.name,
-          price: product.price,
-          thumbnail: product.thumbnail || product.image,
-          quantity: 1
-        });
-      }
-      return acc;
-    }, []);
-    setLocalCartItems(processedItems);
-  }, [cart]); 
-
-  const removeFromLocalCart = (productId) => {
-    setLocalCartItems(prevItems => prevItems.filter(item => item.id !== productId));
-  };
-
-  const updateLocalQuantity = (productId, newQuantity) => {
-    setLocalCartItems(prevItems =>
-      prevItems.map(item =>
-        item.id === productId ? { ...item, quantity: newQuantity } : item
-      ).filter(item => item.quantity > 0)
-    );
-  };
-
-  const subtotal = localCartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+  const subtotal = getSubtotal();
   const shipping = 0;
   const total = subtotal + shipping;
-  const taxes = 0;
+  const taxes = 0; 
 
-  if (localCartItems.length === 0) {
+  const handleRemoveClick = (productId, productName) => {
+    setItemToRemove({ id: productId, name: productName });
+    setShowModal(true);
+  };
+
+  const confirmRemoval = () => {
+    if (itemToRemove) {
+      removeFromCart(itemToRemove.id);
+      setShowModal(false);
+      setItemToRemove(null);
+    }
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+    setItemToRemove(null);
+  };
+
+  if (cartItems.length === 0) {
     return (
       <Container className="mt-5 text-center">
         <Alert variant="info">
@@ -63,9 +52,8 @@ const OrderSummary = () => {
   return (
     <Container className="order-summary-container mt-5">
       <h2 className="mb-4 text-center">Order Summary</h2>
-      {/* قسم المنتجات */}
       <div className="order-items-list">
-        {localCartItems.map(item => (
+        {cartItems.map(item => (
           <Row key={item.id} className="order-item-row align-items-center mb-3 py-2 border-bottom">
             <Col xs={2} className="item-image-col">
               <div className="item-image-wrapper">
@@ -80,29 +68,29 @@ const OrderSummary = () => {
                 <span className="item-quantity-badge">{item.quantity}</span>
               </div>
             </Col>
-            <Col xs={5} className="item-name-col">
+            <Col xs={4} className="item-name-col">
               <span className="item-name">{item.title}</span>
             </Col>
             <Col xs={3} className="item-quantity-control d-flex align-items-center">
-              <Button variant="outline-secondary" size="sm" onClick={( ) => updateLocalQuantity(item.id, item.quantity - 1)} disabled={item.quantity <= 1}>-</Button>
+              <Button variant="outline-secondary" size="sm" onClick={( ) => updateQuantity(item.id, item.quantity - 1)} disabled={item.quantity <= 1}>-</Button>
               <span className="mx-2">{item.quantity}</span>
-              <Button variant="outline-secondary" size="sm" onClick={() => updateLocalQuantity(item.id, item.quantity + 1)}>+</Button>
+              <Button variant="outline-secondary" size="sm" onClick={() => updateQuantity(item.id, item.quantity + 1)}>+</Button>
             </Col>
-            <Col xs={2} className="item-price-col text-end">
+            <Col xs={3} className="item-price-col text-end" style={{display:"flex"}}>
               <span className="item-price">${(item.price * item.quantity).toFixed(2)}</span>
-              <Button variant="link" className="text-danger p-0 ms-2" onClick={() => removeFromLocalCart(item.id)}>
-                <i className="bi bi-trash"></i>
+              <Button variant="link" className="text-danger p-0 ms-2" onClick={() => handleRemoveClick(item.id, item.title)}>
+                <FontAwesomeIcon icon={faTrash} /> 
               </Button>
             </Col>
+            
           </Row>
         ))}
       </div>
 
-      {/* قسم الملخص (Subtotal, Shipping, Total) */}
       <div className="order-summary-details mt-4 p-3 border rounded">
         <Row className="summary-line mb-2">
           <Col xs={8}>
-            <span className="summary-label">Subtotal · {localCartItems.length} items</span>
+            <span className="summary-label">Subtotal · {cartItems.length} items</span>
           </Col>
           <Col xs={4} className="text-end">
             <span className="summary-value">${subtotal.toFixed(2)}</span>
@@ -136,6 +124,24 @@ const OrderSummary = () => {
           </Row>
         )}
       </div>
+
+      {/* Modal  */}
+      <Modal show={showModal} onHide={handleCloseModal} >
+        <Modal.Header closeButton>
+          <Modal.Title>Confirm Removal</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          Are you sure you want to remove "<strong>{itemToRemove?.name}</strong>" from your cart?
+        </Modal.Body>
+        <Modal.Footer style={{alignItems:"center", justifyContent:"center"}}>
+          <Button variant="secondary" onClick={handleCloseModal}>
+            Cancel
+          </Button>
+          <Button variant="danger" onClick={confirmRemoval}>
+            Remove
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </Container>
   );
 };
