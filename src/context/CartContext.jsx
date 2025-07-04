@@ -2,11 +2,6 @@ import React, { createContext, useState, useEffect } from "react";
 
 export const CartContext = createContext();
 
-<<<<<<< HEAD
-export const CartContextProvaider = ({children})=>{
-    
-    const [cart , setCart] = useState([])
-=======
 export const CartContextProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState(() => {
     // حاول تحميل سلة التسوق من Local Storage عند بدء التشغيل
@@ -47,7 +42,6 @@ export const CartContextProvider = ({ children }) => {
       }
     });
   };
->>>>>>> 7913b2fa98b16f40fd7aa1df933f01a154a1e288
 
   // دالة لحذف منتج من السلة بالكامل (تطابق deleteFromCart في Navbar)
   const deleteFromCart = (productId) => {
@@ -77,56 +71,6 @@ export const CartContextProvider = ({ children }) => {
     return cartItems.reduce((total, item) => total + item.quantity, 0);
   };
 
-<<<<<<< HEAD
-    if (!findProduct) {
-            setCart([...cart , {...product , amount : 1}])
-    }else{
-              findProduct.amount +=1              
-    }
-
-}
-
-function deleteFromCart(product) {
-    const newArr = cart.filter((el)=>  el.title !== product.title)
-    setCart(newArr)
-}
-
-function changeAmount(state , product) {
- if(state === "plus"){
-    ++product.amount
-    setCart([...cart])
-}else{
-    if(product.amount > 0){
-        --product.amount
-        
-        setCart([...cart])
-    }else{
-        deleteFromCart(product)
-    }
- }
-}
-const totallCart = cart.reduce((a , b)=> {
-    return a + (b.price * b.amount)
-} , 0 )
-
-const cartLength = cart.reduce((a , b)=>{return a+b.amount} , 0)
-
-
-
-
-
-
-
-
-return(
-    <CartContext.Provider value={{addToCart , cart , setCart , deleteFromCart , changeAmount , totallCart , cartLength}}>
-{children}
-</CartContext.Provider>
-    
-) 
-
-}
-=======
   return (
     <CartContext.Provider
       value={{
@@ -142,4 +86,3 @@ return(
     </CartContext.Provider>
   );
 };
->>>>>>> 7913b2fa98b16f40fd7aa1df933f01a154a1e288
