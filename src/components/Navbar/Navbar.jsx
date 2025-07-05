@@ -25,7 +25,7 @@ const showDataCart = cart && cart.map((val , index)=>{return(
     <div className="col-md-8">
       <div className="card-body position-relative">
         <h5 className="card-title">{val.title}</h5>
-        <p className="card-text"> ${val.price * val.amount}</p>
+        <p className="card-text"> ${val.price.toFixed(0)* val.quantity}</p>
         <div className="card-text flex">
           <button onClick={()=> changeAmount('plus' , val)} className='w-50 btn btn-dark p-0'>+</button>
           <p className='w-50 flex m-0 fs-5 f'>{val.quantity}</p>
@@ -214,7 +214,6 @@ const showDataCart = cart && cart.map((val , index)=>{return(
   <button className='btn btn-dark w-100 mt-4' onClick={()=> checkOutNav("/checkout")}>checkout</button>
 
 </div>
-
   </div>
 
 </>
@@ -222,6 +221,7 @@ const showDataCart = cart && cart.map((val , index)=>{return(
 <div className='text-uppercase text-center mt-5 fs-5 alert alert-danger mx-4 '>There is No Products</div>
 }
 </div>
+
 
 
         </div>
@@ -272,22 +272,6 @@ const showDataCart = cart && cart.map((val , index)=>{return(
      </div> 
     
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-     
-
-
         <Navbar expand="md" className="col-12 col-md-9">
           <Navbar.Toggle aria-controls="main-navbar" />
           <Navbar.Collapse id="main-navbar">
@@ -318,7 +302,7 @@ const showDataCart = cart && cart.map((val , index)=>{return(
             </Nav>
           </Navbar.Collapse>
         </Navbar>
-      </Container>
+      </Container>      
     </>
   );
 }

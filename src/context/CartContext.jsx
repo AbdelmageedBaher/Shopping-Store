@@ -69,7 +69,7 @@ export const CartContextProvider = ({ children }) => {
   // دالة لحساب العدد الكلي للعناصر في السلة
   const getTotalItems = () => {
     return cartItems.reduce((total, item) => total + item.quantity, 0);
-  };
+  };  
 
   return (
     <CartContext.Provider
