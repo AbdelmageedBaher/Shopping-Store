@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useContext } from 'react'; 
 import { Container, Row, Col, Alert, Button, Modal } from 'react-bootstrap';
 import { CartContext } from '../../context/CartContext';
-
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import './OrderSummary.css';
+
+
+
 
 const OrderSummary = () => {
   const {deleteFromCart,changeAmount, cart ,totallCart} = useContext(CartContext);

@@ -1,17 +1,8 @@
-// templates/component/Checkout.js
 import './Checkout.css';
 import { Container, Row, Col } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { 
-//   faCreditCard,
-//   faBars, 
-//   faDrumstickBite, 
-//   faCookieBite,    
-//   faCoffee         
-// } from '@fortawesome/free-solid-svg-icons';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCreditCard} from '@fortawesome/free-solid-svg-icons';
 import OrderSummary from './OrderSummary';
 import { Link } from 'react-router-dom';
@@ -39,7 +30,7 @@ export default function Checkout() {
               <div className="form-section">
                 <div className="form-header" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", height: "26px" }}>
                   <h5 className="section-title" >Contact</h5>
-                  <Link to="/Login" style={{ fontSize: "14px", color: "#007bff" }}>Login</Link>
+                  <Link to="/Login" style={{ fontSize: "14px", color: "#007bff", textDecoration:"underline" }}>Login</Link>
         </div>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Control type="email" placeholder="Email or mobile phone number" className="custom-form-control" />
@@ -59,7 +50,6 @@ export default function Checkout() {
               <option>United States</option>
               <option>Canada</option>
               <option>Mexico</option>
-              {/* أضف المزيد من الخيارات حسب الحاجة */}
             </Form.Control>
           </Form.Group>
 
@@ -135,7 +125,7 @@ export default function Checkout() {
         </Button>
       </Form>
       <hr />
-      <a href="#" style={{fontSize:"14px", }}>Privacy Policy</a>
+      <a href="#" style={{fontSize:"14px", color: "#007bff", textDecoration:"underline"}}>Privacy Policy</a>
       </Container>
       </div>
 
