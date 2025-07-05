@@ -23,10 +23,10 @@ return(
     <div className="col-md-8">
       <div className="card-body position-relative">
         <h5 className="card-title">{val.title}</h5>
-        <p className="card-text"> ${val.price.toFixed(0) * val.amount}</p>
+        <p className="card-text"> ${val.price * val.amount}</p>
         <div className="card-text flex">
           <button onClick={()=> changeAmount('plus' , val)} className='w-50 btn btn-dark p-0'>+</button>
-          <p className='w-50 flex m-0 fs-5 f'>{val.amount}</p>
+          <p className='w-50 flex m-0 fs-5 f'>{val.quantity}</p>
           <button onClick={()=> changeAmount('min' , val)} className='w-50 btn btn-dark p-0'>-</button>
         </div>
           <div onClick={()=> deleteFromCart(val)} className='position-absolute top-0 end-0 p-2 fs-4 '>
