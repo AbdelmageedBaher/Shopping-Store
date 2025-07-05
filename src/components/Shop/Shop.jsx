@@ -13,8 +13,8 @@ import { CartContext } from '../../context/CartContext';
 
           
           // start-useShop  
-          const { apiCategories , getApiSpacificCategory , carantPage , setcarantPge , pages  , orderProducts , generatedPages , pageRefs  , handlePageClick , handlePrev , handleNext , showAllData, isLoading } = useShop()
-          const {changeAmount , totallCart} = useContext(CartContext)
+          const { apiCategories , getApiSpacificCategory , carantPage , setcarantPge , pages  , orderProducts , generatedPages , pageRefs , changeAmount  , handlePageClick , handlePrev , handleNext , showAllData, isLoading } = useShop()
+          const { totallCart} = useContext(CartContext)
           
           // end-useShop  
 

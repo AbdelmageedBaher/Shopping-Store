@@ -121,7 +121,7 @@ transform: translate(-50% , -50%);
     
 }
 .Shop .poster > div small{
-    font-size: 12px;
+    font-size: 8px;
     color: var(--opasty-color);
 }
 
@@ -141,6 +141,33 @@ transform: translate(-50% , -50%);
 }
 .Shop .card .card-img {
     cursor: pointer;
+
+}
+@media (max-width:800px) {
+    .Shop .poster > div p{
+    font-size:18px ;
+}
+    .Shop .poster > div b{
+    font-size:20px ;
+}
+.Shop .poster > div small{
+    font-size: 8px;
+}
+}
+@media (max-width:500px) {
+    .Shop .poster > div p{
+    font-size:10px ;
+}
+    .Shop .poster > div b{
+    font-size:10px ;
+}
+.Shop .poster > div small{
+    font-size: 5px;
+}
+.Shop .titleShop{
+    flex-direction: column;
+    gap: 10px;
+}
 
 }
 .Shop .card {

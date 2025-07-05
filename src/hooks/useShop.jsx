@@ -104,7 +104,7 @@ const showAllData = orderProducts?.map((val , index)=>{
           <b>${val?.price}</b>
           <div className='flex btn-group mt-2'>
             <button onClick={()=> changeAmount('min' , val)} className='btn flex'>-</button>
-            <p className='m-0 w-100 flex'>{val.amount}</p>
+            <p className='m-0 w-100 flex'>{val.quantity || 1}</p>
             <button onClick={()=> changeAmount('plus' , val)} className='btn flex'>+</button>
           </div>
           </div>
