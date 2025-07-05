@@ -1,1 +1,141 @@
-.About {}
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+.About {
+  background-image:  url('src/assets/images/About.png');
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  position: relative;
+}
+
+.hero-overlay {
+  background-color: rgba(0, 0, 0, 0.4);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-align: center;
+}
+
+.hero-overlay h1 {
+  font-size: 48px;
+  font-weight: 600;
+}
+
+.hero-overlay p {
+  font-size: 16px;
+  letter-spacing: 2px;
+  margin-top: 10px;
+}
+.about-part2 .abslutePart{
+  position: absolute;
+  width: 90%;
+  bottom: -50px;
+  right: 0;
+  padding: 30px 0 36px 100px;
+  background-color: #fff;
+  border-radius: 7px;
+  font-family: var(--font-family);
+  font-size: 14px;
+  font-weight: 400;
+  color: #202435;
+  font-style: regular;
+  line-height: 24px;
+
+  display: flex;
+  
+}
+@media screen and (max-width: 768px) {
+  .about-part2 .abslutePart {
+    padding: 20px;
+    width: 100%;
+    bottom: -30px;
+    right: 0;
+  }
+  
+}
+
+.quote-section h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+.prag-1{
+  font-family: var(--font-family);
+  font-weight: 400;
+  line-height: 24px;
+  font-size: 14px;
+  color: #202435;
+  margin-bottom: 20px;
+}
+.Subtitle{
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 32px;
+  color: #202435;
+  margin-bottom: 10px;
+}
+.prag-sub{
+  font-family: var(--font-family);
+  font-weight: 400;
+  line-height: 24px;
+  font-size: 14px;
+  color: #202435;
+  margin-bottom: 20px;
+}
+.ceo-section {
+  background-color: #fafafa;
+}
+
+.ceo-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  align-items: center;
+}
+
+.ceo-image img {
+  max-width: 300px;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.ceo-text {
+  flex: 1;
+}
+
+.ceo-name {
+  font-size: 16px;
+  color: #777;
+  font-weight: 500; 
+  letter-spacing: -0.1px; 
+  line-height: 20px;
+  margin-bottom: 10px;
+}
+
+.ceo-text h5 {
+  font-size: 28px;
+  font-weight: 600;
+  color: #202435;
+  line-height: 30px;
+  margin-bottom: 15px;
+}
+.ceoPrag1 , .ceoPrag2 , .ceoPrag3{
+  font-family: var(--font-family);
+  font-weight: 400;
+  line-height: 24px;
+  font-size: 14px;
+  color: #202435;
+  margin-bottom: 20px;
+}
+.final-text p {
+  font-size: 15px;
+  color: #555;
+}

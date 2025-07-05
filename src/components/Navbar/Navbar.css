@@ -9,7 +9,7 @@
 }
 .NavPart-1{
   background-color: var(--main-color);
-  padding: 9px 389.5px 9px 389.5px;
+  padding: 0 130px 1px 130px;
   height: 36px;
   font-family: var(--font-family);
   font-size: 12px;
@@ -24,17 +24,18 @@
   border-bottom: 1px solid var(--opasty-color);
   padding: 0 130px 1px 130px;
 }
-.NavPart-2 .Part-left{
+.NavPart-2 .Part-left , a {
   font-family: var(--font-family);
   font-size: 12px;
   font-weight: 400;
   line-height: 18px;
   letter-spacing: -0.1px;
   color: var(--dark-color); 
+  text-decoration: none;
 }
 .NavPart-2 .Part-right {
   font-family: var(--font-family);
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 400;
   line-height: 18px;
   letter-spacing: -0.1px;
@@ -48,8 +49,7 @@
   padding-left: 5px;
   margin-left: 5px;
 }
-.NavPart-3{
-  height: 93px;
+.NavPart-3{  
   padding: 30px 130px 0 130px;
 }
 .NavPart-3 .logo{
@@ -123,6 +123,30 @@
   left: 45px;  
   height: 18px;
 }
+/* @media screen and (max-width: 768px) {
+  .NavPart-1, .NavPart-2, .NavPart-3, .NavPart-4 {
+    padding: 0 20px;
+  }
+  .NavPart-2 {
+    padding: 0;
+    border-bottom: none;
+  }
+  .NavPart-3 .logo {
+    left: -10px;
+  }
+  .NavPart-3 .searchPart {
+    height: auto;
+  }
+
+  .NavPart-3 .searchPart input {
+    font-size: 14px;
+    padding: 20px 10px;
+  }
+  .NavPart-4 .leftPart {
+   display: none;
+  }
+  
+} */
 /* /////////////////////////////////////////////////// */
 .navbar{
   color: #3E445A;
@@ -159,4 +183,107 @@
 
 .navbar a:hover {
   color: #ccc;
+}
+/* @media screen and (max-width: 768px) {
+  .navbar ul {
+    flex-direction: column;
+    align-items: center;
+  }
+  .navbar li {
+    margin-bottom: 10px;
+  }
+  .navbar a {
+    font-size: 14px;
+  }
+  
+} */
+ /* Navbar.css */
+
+/* شاشة أقل من 768px (موبايل) */
+@media (max-width: 767px) {
+  .NavPart-1 {
+    font-size: 10px;
+    padding: 5px;
+  }
+
+  .NavPart-2{
+    padding: 1px;
+    justify-content: center;
+  }
+  .NavPart-2 .Part-right {    
+  display: none!important;
+  }
+
+  
+
+  .NavPart-3 {
+    flex-direction: column;
+    text-align: center;
+    padding: 1px!important;
+  }
+  .NavPart-3 .logo {
+    position: relative;
+    top: 0;
+    left: 0;
+    margin-bottom: 10px;
+  }
+  .NavPart-3 .searchPart , .NavPart-3 .cartPart {    
+   display: none !important;
+  }
+
+  .Partlogo {
+    margin-bottom: 10px;
+  }
+
+  .leftPart {
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+
+  .navbar-nav {
+    flex-direction: column !important;
+    align-items: center;
+    padding: 10px 0;
+  }
+
+  .navbar-nav li {
+    margin-bottom: 5px;
+  }
+  .NavPart-4{
+    padding: 1px 20px 0 20px;
+    
+  }
+  .NavPart-4 .leftPart {    
+    justify-content: center;
+    margin-bottom: 10px;
+    display: none!important;
+  }
+  .navbar-toggler {
+    display: block;
+    background-color: var(--main-color);
+    border: none;
+
+  }
+}
+
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .Partlogo img {
+    width: 80px;
+    height: auto;
+  }
+
+  .searchPart input {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .cartPart {
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .Part-right span {
+    font-size: 14px;
+  }
 }

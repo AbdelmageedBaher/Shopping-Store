@@ -7,7 +7,7 @@
   --dark-color:#202435;
   --opasty-color:#9B9BB4;
 }
-.Footer {}
+
 .FooterPart1 {
   display: flex;
   /* justify-content: space-between; */
@@ -15,8 +15,7 @@
   padding: 0 130px 0 130px;
   background-color: var(--main-color);
 }
-.leftPart {
-}
+
 .FooterPart1 .leftPart h6 {
   font-family: var(--font-family);
   font-size: 16px;
@@ -88,6 +87,28 @@
   height: 277.4px;
   object-fit: cover;  
 }
+@media screen and (max-width: 768px) {
+  .FooterPart1 {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  .FooterPart1 .leftPart {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .FooterPart1 .leftPart h1 {
+    font-size: 22px;
+  }
+  .FooterPart1 .leftPart h6 {
+    font-size: 14px;
+  }
+  .FooterPart1 .leftPart form {
+    width: 100%;
+    max-width: 400px;
+  }
+  
+}
 /*  */
 .FooterPart2 {
   display: flex;
@@ -129,6 +150,31 @@
   letter-spacing: -0.1px;  
   color: var(--dark-color);
 }
+@media screen and (max-width: 768px) {
+  .FooterPart2 {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding:1px;
+  }
+  .FooterPart3{
+    padding: 30px!important;
+  }
+  .footer-legal {
+    padding: 0!important;
+    margin: 0!important;
+  }
+  .footer-legal .row{
+    margin: 0!important;
+  }
+  .feature {
+    margin-bottom: 10px;
+  }
+  .feature:not(:last-child)::after {
+    display: none;
+  }
+  
+}
 
 .FooterPart3 {
   
@@ -146,15 +192,14 @@
 }
 
 .footer-columns {
-  display: flex;
-  justify-content: space-between;  
-  gap: 20px;
+  display: flex;   
+  gap: 10px;
   padding: 101px 0 101px 0;
 }
 
-.footer-col h4 {
+.footer-col h3 {
   font-family: var(--font-family-alt);
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
   color: var(--dark-color);
   line-height: 18px;
@@ -207,7 +252,7 @@
   line-height: 16.5px;
   letter-spacing: -0.1px; 
 }
-.app-download p:first-child{
+.app-download .F-childe{
   font-family: var(--font-family);
   font-size: 14px;
   font-weight: 600;
@@ -215,7 +260,7 @@
   color: var(--dark-color);
   margin-bottom: 0;
 }
-.app-download p:last-child{
+.app-download .L-childe{
   font-family: var(--font-family);
   font-size: 12px;
   font-weight: 400;
@@ -238,8 +283,7 @@
 }
 
 .footer-legal {
-  display: flex;
-  /* justify-content: space-between; */
+  display: flex;  
   align-items: center;  
   background-color: var(--light-color);
   padding: 35px 130px 35px 130px;  
