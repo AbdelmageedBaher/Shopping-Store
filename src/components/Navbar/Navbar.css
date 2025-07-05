@@ -1,12 +1,4 @@
 
-:root{
-  --font-family:"Inter", sans-serif;
-  --main-color:#35AFA0 ;
-  --body-color: #D51243 ;
-  --light-color: #FFFFFF;
-  --dark-color:#202435;
-  --opasty-color:#9B9BB4;
-}
 .NavPart-1{
   background-color: var(--main-color);
   padding: 0 130px 1px 130px;
@@ -17,11 +9,11 @@
   line-height: 18px;
   letter-spacing: -0.1px;
   color: #fff; 
- 
 }
 .NavPart-2 {
   height: 40px;
   border-bottom: 1px solid var(--opasty-color);
+  padding: 0 120px 1px 360px;
   padding: 0 130px 1px 130px;
 }
 .NavPart-2 .Part-left , a {
@@ -49,7 +41,9 @@
   padding-left: 5px;
   margin-left: 5px;
 }
-.NavPart-3{  
+
+.NavPart-3{
+  height: 93px;  
   padding: 30px 130px 0 130px;
 }
 .NavPart-3 .logo{
@@ -101,6 +95,9 @@
 .NavPart-4{
   padding: 30px 130px 0 130px;
 }
+.leftPart{
+  
+}
  .NavPart-4 .leftPart{
   border-radius: 50px;
   background-color: var(--main-color);
@@ -123,31 +120,6 @@
   left: 45px;  
   height: 18px;
 }
-/* @media screen and (max-width: 768px) {
-  .NavPart-1, .NavPart-2, .NavPart-3, .NavPart-4 {
-    padding: 0 20px;
-  }
-  .NavPart-2 {
-    padding: 0;
-    border-bottom: none;
-  }
-  .NavPart-3 .logo {
-    left: -10px;
-  }
-  .NavPart-3 .searchPart {
-    height: auto;
-  }
-
-  .NavPart-3 .searchPart input {
-    font-size: 14px;
-    padding: 20px 10px;
-  }
-  .NavPart-4 .leftPart {
-   display: none;
-  }
-  
-} */
-/* /////////////////////////////////////////////////// */
 .navbar{
   color: #3E445A;
   padding: 1rem;
@@ -184,22 +156,6 @@
 .navbar a:hover {
   color: #ccc;
 }
-/* @media screen and (max-width: 768px) {
-  .navbar ul {
-    flex-direction: column;
-    align-items: center;
-  }
-  .navbar li {
-    margin-bottom: 10px;
-  }
-  .navbar a {
-    font-size: 14px;
-  }
-  
-} */
- /* Navbar.css */
-
-/* شاشة أقل من 768px (موبايل) */
 @media (max-width: 767px) {
   .NavPart-1 {
     font-size: 10px;

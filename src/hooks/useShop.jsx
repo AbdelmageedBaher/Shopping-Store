@@ -8,13 +8,16 @@ import { FaShopify } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
  import { order } from '../components/purchaseOrder/Purchase-order';
 import Loading from '../components/Loading/Loading';
+import { CartContext } from '../context/CartContext';
 
 
 function useShop() {
 const {allData , apiCategories , getApiSpacificCategory , isLoading  , setIsLoading} = useContext(apiContext)
 const[carantPage , setcarantPge] = useState(1)
+  const {addToCart , changeAmount} = useContext(CartContext)
 
           const { handleClick } = order();
+
 
 
     
@@ -81,9 +84,9 @@ const showAllData = orderProducts?.map((val , index)=>{
     
       
       
-          <div  className="card" onClick={() => handleClick(val)} style={{ cursor: 'pointer' }}>
+          <div  className="card" >
           <div className='buying flex '>
-            <div className='px-2 gap-3 py-1'>
+            <div onClick={ ()=> addToCart(val)} className='px-2 gap-3 py-1'>
             <FaShopify/>
             </div>
             <div className='px-2 gap-3 py-1'>
@@ -91,7 +94,7 @@ const showAllData = orderProducts?.map((val , index)=>{
             </div>
           </div>
           <span className='z-3 flex px-2 py-1'>%{val?.discountPercentage}</span>
-          <div >
+          <div onClick={() => handleClick(val)} style={{ cursor: 'pointer' }}>
           <img className='card-img'  src={val?.thumbnail} alt="" />
           </div>
           <div className='card-body'>
@@ -100,9 +103,9 @@ const showAllData = orderProducts?.map((val , index)=>{
           <small className='flex gap-1'><FaStar/><FaStar/><FaStar/><FaStar/><CiStar/><b>{Math.trunc(val?.rating)} review</b></small>
           <b>${val?.price}</b>
           <div className='flex btn-group mt-2'>
-            <button className='btn flex'>-</button>
-            <p className='m-0 w-100 flex'>0</p>
-            <button className='btn flex'>+</button>
+            <button onClick={()=> changeAmount('min' , val)} className='btn flex'>-</button>
+            <p className='m-0 w-100 flex'>{val.amount}</p>
+            <button onClick={()=> changeAmount('plus' , val)} className='btn flex'>+</button>
           </div>
           </div>
           </div>
@@ -112,7 +115,7 @@ const showAllData = orderProducts?.map((val , index)=>{
         // end-fetch-allData
         
         
-        return{allData , apiCategories , getApiSpacificCategory , carantPage , setcarantPge , productPrePage , pages , startIndex , finishIndex , orderProducts , generatedPages , pageRefs ,updateActiveClass , handlePageClick , handlePrev , handleNext , showAllData , isLoading}
+        return{allData , apiCategories , getApiSpacificCategory , carantPage , setcarantPge , productPrePage , pages , startIndex , finishIndex , orderProducts , generatedPages , pageRefs ,updateActiveClass , handlePageClick , handlePrev , handleNext , showAllData , isLoading , changeAmount}
         
       }
       

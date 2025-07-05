@@ -23,18 +23,18 @@ function App() {
       {path:'/about',element:<About />},
       {path:'/shop',element:<Shop />},
       {path:'/categories',element:<Categories />},
+      {path:'/login',element:<Login />},
       {path:'/blog',element:<Blog />},
       {path:'/contact',element:<Contact />},
       {path:'/checkout',element:<Checkout />},
       {path:'*',element:<Notfound />},
-      {path:'/login',element:<Login />},
       {path:'/register',element:<Register />},
     ]
-  }])
+  }]);
 
  return (
     <PurchaseOrder>
-      <RouterProvider router={routes} />
+      <RouterProvider router={routes}></RouterProvider>
     </PurchaseOrder>
   );
 }

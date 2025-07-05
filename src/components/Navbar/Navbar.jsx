@@ -1,13 +1,49 @@
-// templates/component/Navbar.js
+
 
 import React from "react";
-import { useState } from "react";
 import "./Navbar.css";
-import { Link } from "react-router-dom";
 import { Container, Row, Col, Navbar, Nav } from "react-bootstrap";
+import  { useContext } from 'react';
+import './Navbar.css';
+import { Link, useNavigate } from 'react-router-dom';
+import { IoMdCloseCircleOutline } from "react-icons/io";
+import { CartContext } from "../../context/CartContext";
+
 
 export default function navbar() {
-  const [cartCount] = useState(0);
+ const {cart , deleteFromCart , changeAmount , totallCart , cartLength} = useContext(CartContext)
+
+
+const checkOutNav = useNavigate()
+
+const showDataCart = cart && cart.map((val , index)=>{return(
+  <div key={index} className="card">
+  <div className="row g-0">
+    <div className="col-md-4">
+      <img className='w-100' src={val.thumbnail} />
+    </div>
+    <div className="col-md-8">
+      <div className="card-body position-relative">
+        <h5 className="card-title">{val.title}</h5>
+        <p className="card-text"> ${val.price.toFixed(0) * val.amount}</p>
+        <div className="card-text flex">
+          <button onClick={()=> changeAmount('plus' , val)} className='w-50 btn btn-dark p-0'>+</button>
+          <p className='w-50 flex m-0 fs-5 f'>{val.amount}</p>
+          <button onClick={()=> changeAmount('min' , val)} className='w-50 btn btn-dark p-0'>-</button>
+        </div>
+          <div onClick={()=> deleteFromCart(val)} className='position-absolute top-0 end-0 p-2 fs-4 '>
+        <IoMdCloseCircleOutline/>
+          </div>
+      </div>
+      
+    </div>
+  
+  </div>
+</div>
+
+)
+
+})
   return (
     <>
       <div className="NavPart-1 d-flex justify-content-center align-items-center text-center">
@@ -143,35 +179,51 @@ export default function navbar() {
               </defs>
             </svg>
           </Link>
-          <h6 className="mb-0">$0.00</h6>
-          <div className="position-relative">
-            <svg
-              width="42"
-              height="43"
-              viewBox="0 0 42 43"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect y="0.5" width="42" height="42" rx="21" fill="#FFF1EE" />
-              <g clip-path="url(#clip0_1_7737)">
-                <path
-                  d="M21.0342 14.411C20.5242 14.411 20.0511 14.5385 19.6147 14.7935C19.1784 15.0485 18.8327 15.3942 18.5777 15.8305C18.3227 16.2668 18.1952 16.74 18.1952 17.25H16.7502C16.7502 16.4793 16.9401 15.7682 17.3197 15.1165C17.6994 14.4648 18.2151 13.9492 18.8667 13.5695C19.5184 13.1898 20.2296 13 21.0002 13C21.7709 13 22.4821 13.1898 23.1337 13.5695C23.7854 13.9492 24.3011 14.4648 24.6807 15.1165C25.0604 15.7682 25.2502 16.4793 25.2502 17.25H28.0382C28.4462 17.25 28.7919 17.3945 29.0752 17.6835C29.3586 17.9725 29.5002 18.3267 29.5002 18.746C29.5002 18.8367 29.4946 18.9217 29.4832 19.001L27.9022 28.147C27.8116 28.6797 27.5622 29.1217 27.1542 29.473C26.7462 29.8243 26.2759 30 25.7432 30H16.2572C15.7246 30 15.2542 29.8243 14.8462 29.473C14.4382 29.1217 14.1889 28.6797 14.0982 28.147L12.5172 19.018C12.4492 18.61 12.5314 18.236 12.7637 17.896C12.9961 17.556 13.3106 17.3463 13.7072 17.267C13.7866 17.2557 13.8716 17.25 13.9622 17.25H23.8732C23.8732 16.74 23.7457 16.2668 23.4907 15.8305C23.2357 15.3942 22.8901 15.0485 22.4537 14.7935C22.0174 14.5385 21.5442 14.411 21.0342 14.411ZM28.0382 18.661H13.9622C13.9509 18.661 13.9339 18.6837 13.9112 18.729V18.763L15.4922 27.909C15.5262 28.0903 15.6056 28.2433 15.7302 28.368C15.8549 28.4927 16.0022 28.5607 16.1722 28.572L16.2572 28.589H25.7432C25.9132 28.589 26.0691 28.5352 26.2107 28.4275C26.3524 28.3198 26.4459 28.1753 26.4912 27.994L28.0892 18.746C28.0892 18.7007 28.0779 18.678 28.0552 18.678L28.0382 18.661Z"
-                  fill="#EA2B0F"
-                />
-              </g>
-              <defs>
-                <clipPath id="clip0_1_7737">
-                  <rect
-                    width="17"
-                    height="17"
-                    fill="white"
-                    transform="matrix(1 0 0 -1 12.5 30)"
-                  />
-                </clipPath>
-              </defs>
-            </svg>
-            <span className="badge">{cartCount}</span>
-          </div>
+          <h6 className='mb-0'>${totallCart.toFixed(2)}</h6>
+          <div className="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><div className='position-relative'>
+  <svg width="42" height="43" viewBox="0 0 42 43" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect y="0.5" width="42" height="42" rx="21" fill="#FFF1EE"/>
+<g clip-path="url(#clip0_1_7737)">
+<path d="M21.0342 14.411C20.5242 14.411 20.0511 14.5385 19.6147 14.7935C19.1784 15.0485 18.8327 15.3942 18.5777 15.8305C18.3227 16.2668 18.1952 16.74 18.1952 17.25H16.7502C16.7502 16.4793 16.9401 15.7682 17.3197 15.1165C17.6994 14.4648 18.2151 13.9492 18.8667 13.5695C19.5184 13.1898 20.2296 13 21.0002 13C21.7709 13 22.4821 13.1898 23.1337 13.5695C23.7854 13.9492 24.3011 14.4648 24.6807 15.1165C25.0604 15.7682 25.2502 16.4793 25.2502 17.25H28.0382C28.4462 17.25 28.7919 17.3945 29.0752 17.6835C29.3586 17.9725 29.5002 18.3267 29.5002 18.746C29.5002 18.8367 29.4946 18.9217 29.4832 19.001L27.9022 28.147C27.8116 28.6797 27.5622 29.1217 27.1542 29.473C26.7462 29.8243 26.2759 30 25.7432 30H16.2572C15.7246 30 15.2542 29.8243 14.8462 29.473C14.4382 29.1217 14.1889 28.6797 14.0982 28.147L12.5172 19.018C12.4492 18.61 12.5314 18.236 12.7637 17.896C12.9961 17.556 13.3106 17.3463 13.7072 17.267C13.7866 17.2557 13.8716 17.25 13.9622 17.25H23.8732C23.8732 16.74 23.7457 16.2668 23.4907 15.8305C23.2357 15.3942 22.8901 15.0485 22.4537 14.7935C22.0174 14.5385 21.5442 14.411 21.0342 14.411ZM28.0382 18.661H13.9622C13.9509 18.661 13.9339 18.6837 13.9112 18.729V18.763L15.4922 27.909C15.5262 28.0903 15.6056 28.2433 15.7302 28.368C15.8549 28.4927 16.0022 28.5607 16.1722 28.572L16.2572 28.589H25.7432C25.9132 28.589 26.0691 28.5352 26.2107 28.4275C26.3524 28.3198 26.4459 28.1753 26.4912 27.994L28.0892 18.746C28.0892 18.7007 28.0779 18.678 28.0552 18.678L28.0382 18.661Z" fill="#EA2B0F"/>
+</g>
+<defs>
+<clipPath id="clip0_1_7737">
+<rect width="17" height="17" fill="white" transform="matrix(1 0 0 -1 12.5 30)"/>
+</clipPath>
+</defs>
+</svg>
+
+</div></div>
+<div className="offcanvas offcanvas-end" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <div className="offcanvas-header">
+    <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+{cart.length? 
+<>
+  <div className="offcanvas-body">
+
+{showDataCart}
+
+
+<hr />
+<div className='d-flex justify-content-around border'>
+  <b className='fs-4 m-0'>totall:</b>
+  <p className='fs-5 m-0'>${totallCart.toFixed(2)}</p>
+</div>
+<div>
+  <button className='btn btn-dark w-100 mt-4' onClick={()=> checkOutNav("/checkout")}>checkout</button>
+
+</div>
+
+  </div>
+
+</>
+:
+<div className='text-uppercase text-center mt-5 fs-5 alert alert-danger mx-4 '>There is No Products</div>
+}
+</div>
+
+
         </div>
       </Container>
       
@@ -179,8 +231,32 @@ export default function navbar() {
         fluid
         className="NavPart-4 d-flex align-items-center py-2 mb-3"
       >
-        <div className="leftPart  d-flex align-items-center justify-content-around col-12 col-md-3 position-relative">
-            <svg width="13" height="21" viewBox="0 0 13 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <div className="leftPart  d-flex align-items-center justify-content-around col-12 col-md-3 position-relative">
+           
+  {/* <div key={index} className="card">
+  <div className="row g-0">
+    <div className="col-md-4">
+      <img className='w-100' src={val.thumbnail} />
+    </div>
+    <div className="col-md-8">
+      <div className="card-body position-relative">
+        <h5 className="card-title">{val.title}</h5>
+        <p className="card-text"> ${val.price.toFixed(0) * val.amount}</p>
+        <div className="card-text flex">
+          <button onClick={()=> changeAmount('plus' , val)} className='w-50 btn btn-dark p-0'>+</button>
+          <p className='w-50 flex m-0 fs-5 f'>{val.amount}</p>
+          <button onClick={()=> changeAmount('min' , val)} className='w-50 btn btn-dark p-0'>-</button>
+        </div>
+          <div onClick={()=> deleteFromCart(val)} className='position-absolute top-0 end-0 p-2 fs-4 '>
+        <IoMdCloseCircleOutline/>
+          </div>
+      </div>
+      
+    </div>
+  
+  </div>
+</div> */}
+   <svg width="13" height="21" viewBox="0 0 13 21" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M12.493 9.74299H0.507C0.368333 9.74299 0.249167 9.79282 0.1495 9.89249C0.0498333 9.99216 0 10.1113 0 10.25C0 10.3887 0.0498333 10.5078 0.1495 10.6075C0.249167 10.7072 0.368333 10.757 0.507 10.757H12.493C12.6403 10.757 12.7617 10.7072 12.857 10.6075C12.9523 10.5078 13 10.3865 13 10.2435C13 10.1005 12.9523 9.98132 12.857 9.88599C12.7617 9.79066 12.6403 9.74299 12.493 9.74299ZM12.493 5.67399H0.507C0.368333 5.67399 0.249167 5.72382 0.1495 5.82349C0.0498333 5.92315 0 6.04232 0 6.18099C0 6.31966 0.0498333 6.44099 0.1495 6.54499C0.249167 6.64899 0.368333 6.70099 0.507 6.70099H12.493C12.6317 6.70099 12.7508 6.65116 12.8505 6.55149C12.9502 6.45182 13 6.32832 13 6.18099C13 6.03366 12.9523 5.91232 12.857 5.81699C12.7617 5.72165 12.6403 5.67399 12.493 5.67399ZM12.493 13.799H0.507C0.368333 13.799 0.249167 13.8488 0.1495 13.9485C0.0498333 14.0482 0 14.1673 0 14.306C0 14.4447 0.0498333 14.566 0.1495 14.67C0.249167 14.774 0.368333 14.826 0.507 14.826H12.493C12.6317 14.826 12.7508 14.7762 12.8505 14.6765C12.9502 14.5768 13 14.4555 13 14.3125C13 14.1695 12.9502 14.0482 12.8505 13.9485C12.7508 13.8488 12.6317 13.799 12.493 13.799Z" fill="white"/>
 </svg>
 <span className=''>All Categories</span>
@@ -188,8 +264,29 @@ export default function navbar() {
 <path d="M1.40473 0.218634L5.25 3.9184L9.11605 0.218634C9.26848 0.0384951 9.43476 0.0384951 9.6149 0.218634C9.79504 0.371058 9.79504 0.53734 9.6149 0.717479L5.49942 4.79138C5.347 4.94381 5.18072 4.94381 5.00058 4.79138L0.885104 0.717479C0.704965 0.53734 0.704965 0.371058 0.885104 0.218634C1.05139 0.052352 1.2246 0.052352 1.40473 0.218634Z" fill="white"/>
 </svg>
 <span className='totalProdct'>TOTAL 50 PRODUCTS</span>
-      
-        </div>
+
+
+
+
+   
+     </div> 
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     
+
 
         <Navbar expand="md" className="col-12 col-md-9">
           <Navbar.Toggle aria-controls="main-navbar" />

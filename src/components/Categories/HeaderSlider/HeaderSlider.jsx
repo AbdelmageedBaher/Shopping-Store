@@ -18,7 +18,7 @@ export default function HeaderSlider() {
   };
 
   return (
-    <div className="container d-xl-block d-sm-none HeaderSlider">
+    <div className="container d-xl-block d-none HeaderSlider">
       <Slider {...settings}>
         <div className="position-relative">
           <img

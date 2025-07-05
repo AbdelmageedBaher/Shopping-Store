@@ -8,21 +8,22 @@ import { IoMdClose } from "react-icons/io";
 import { Modal, Button, ModalFooter } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import useProducts from "../../hooks/useQuerypProducts";
+import { CartContext } from "../../context/CartContext";
 
 
 const ProductContext = createContext()
-;
 export const order = () => useContext(ProductContext);
 
 function PurchaseOrder({ children }) {
-
-    // Fetch all products 
-    const products = useProducts(); 
-
-    // Local state for selected product and quantity
-    const [selectedProduct, setSelectedProduct] = useState(null);
-    const [qty, setQty] = useState(1);
-    const { data: allProducts = [] } = useProducts();
+  
+  // Fetch all products 
+  const products = useProducts(); 
+  
+  // Local state for selected product and quantity
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [qty, setQty] = useState(1);
+  const { data: allProducts = [] } = useProducts();
+  const {addToCart} = useContext(CartContext)
 
     const handleClick = (product) => {
     setSelectedProduct(product);
@@ -66,7 +67,7 @@ function PurchaseOrder({ children }) {
 
           <div className="row align-items-start mt-4">
             <div className="col-md-6">
-              <img className="img-fluid"  src={selectedProduct.images}
+              <img className="img-fluid"  src={selectedProduct.images[0]}
               alt={selectedProduct.name}
               style={{
                 width: "646px",
@@ -95,9 +96,9 @@ function PurchaseOrder({ children }) {
               </div>
 
               <div>
-              <Button className="d-block w-100 my-2 border-0"
+              <Button  className="d-block w-100 my-2 border-0"
               style={{ backgroundColor : "#35AFA0" , height:" 50px" }}
-              onClick={handleAddToCart}>
+              onClick={ ()=>{handleAddToCart , addToCart(selectedProduct)} }>
                 <MdOutlineShoppingBag  className=" m-2" style={{width: "25px"}} />
               Add to Cart</Button>
 
