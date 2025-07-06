@@ -6,6 +6,7 @@ import { IoMdCloseCircleOutline } from "react-icons/io";
 import { CartContext } from "../../context/CartContext";
 import { apiContext } from "../../context/apiContext";
 import logo from "../../assets/images/logo.png";
+import hand from "../../assets/images/hand.png";
 
 export default function navbar() {
   const { cart, deleteFromCart, changeAmount, totallCart, cartLength } = useContext(CartContext);
@@ -62,7 +63,7 @@ export default function navbar() {
             <Link>Wishlist</Link>
           </Col>
           <Col xs={12} md={8} className="Part-right d-flex align-items-center justify-content-center justify-content-md-end text-center text-md-start gap-2">
-            <img src="src/assets/images/hand.png" width={25} height={25} />
+            <img src={hand} width={25} height={25} />
             <span className="me-1 ms-1">100% Secure delivery without contacting the courier</span> |
             <span className="ms-1">Need help? Call Us: <span className="cullUs">+1 234 567 89</span></span>
             <div className="lang d-flex align-items-center gap-1">

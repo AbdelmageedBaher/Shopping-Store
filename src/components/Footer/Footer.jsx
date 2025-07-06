@@ -3,10 +3,14 @@
 import React from "react";
 import "./Footer.css";
 import { Container, Row, Col } from 'react-bootstrap';
+import footerbanner from '../../assets/images/coupon.png'
+import googlePlay from "../../assets/images/google play.png"
+import appStore from "../../assets/images/app store.png"
+
 export default function Footer() {
   return (
     <>
-  <Container fluid className="FooterPart1 py-5 mt-3">
+  <div fluid className="FooterPart1  py-5 mt-3">
   <Row className="align-items-center">    
     <Col xs={12} md={7} className="leftPart mb-4 mb-md-0">
       <h6>
@@ -44,10 +48,10 @@ export default function Footer() {
       </form>
     </Col>    
     <Col xs={12} md={5} className="rightPart text-center text-md-end">
-      <img src="src/assets/images/coupon.png.png" alt="coupon" className="img-fluid" />
+      <img src={footerbanner} alt="coupon" className="img-fluid" />
     </Col>
   </Row>
-</Container>
+</div>
      <Container fluid className="FooterPart2 d-flex flex-wrap justify-content-around py-3 border-top">
         <div className="feature">
           <svg
@@ -226,8 +230,8 @@ export default function Footer() {
               <p className="L-childe">15% discount on your first purchase</p>
               </div>
               <div className="store-icons d-flex gap-2">
-                <img src="src/assets/images/google play.png" alt="Google Play" className="me-1" />
-                <img src="src/assets/images/app store.png" alt="App Store" />
+                <img src={googlePlay} alt="Google Play" className="me-1" />
+                <img src={appStore} alt="App Store" />
               </div>
             </div>
             <div className="social-icons d-flex gap-2 mt-3 mt-md-0">
