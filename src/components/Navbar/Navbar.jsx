@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import { CartContext } from "../../context/CartContext";
 import { apiContext } from "../../context/apiContext";
+import logo from "../../assets/images/logo.png";
 
 export default function navbar() {
   const { cart, deleteFromCart, changeAmount, totallCart, cartLength } = useContext(CartContext);
@@ -81,7 +82,7 @@ export default function navbar() {
       {/* NavPart-3 */}
       <Container fluid className="NavPart-3 d-flex flex-wrap align-items-center justify-content-between py-2">
         <Link to="/" className="Partlogo position-relative me-4">
-          <img src="src/assets/images/logo.png" alt="logo" width={100} height={50} />
+          <img src={logo} alt="logo" width={100} height={50} />
         </Link>
 
         <div className="searchPart d-flex flex-grow-1 mx-3 my-2 my-md-0">
