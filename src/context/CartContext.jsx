@@ -14,17 +14,21 @@ export const CartContextProvider = ({ children }) => {
     localStorage.setItem('cartItems', JSON.stringify(cartItems));
   }, [cartItems]);
 
-  // دالة لإضافة منتج إلى السلة
+  // ✅✅✅ دالة لإضافة منتج إلى السلة (تم تعديلها لدعم الكمية المحددة)
   const addToCart = (product) => {
     setCartItems((prevItems) => {
       const existingItem = prevItems.find((item) => item.id === product.id);
+      const incomingQty = product.quantity || 1; // ✅ استخدم الكمية القادمة من الكارد
+
       if (existingItem) {
         // إذا كان المنتج موجودًا بالفعل، قم بزيادة الكمية
         return prevItems.map((item) =>
-          item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+          item.id === product.id
+            ? { ...item, quantity: item.quantity + incomingQty } // ✅ زود الكمية حسب المطلوب
+            : item
         );
       } else {
-        // إذا كان المنتج جديدًا، أضفه بكمية 1
+        // إذا كان المنتج جديدًا، أضفه بكمية product.quantity أو 1
         // تأكد من أن المنتج يحتوي على الحقول الأساسية (id, title, price, thumbnail)
         // إضافة فحص لـ product.price لضمان أنه رقم
         if (product && typeof product.price === 'number') {
@@ -33,7 +37,7 @@ export const CartContextProvider = ({ children }) => {
             title: product.title || product.name || 'Unknown Product', // قيمة افتراضية
             price: product.price,
             thumbnail: product.thumbnail || product.image || 'default-image.jpg', // قيمة افتراضية
-            quantity: 1 // Navbar يتوقع quantity
+            quantity: incomingQty // ✅ استخدم الكمية القادمة بدل 1 فقط
           }];
         } else {
           console.error("Product added to cart does not have a valid price:", product);

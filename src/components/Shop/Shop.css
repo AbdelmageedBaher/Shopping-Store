@@ -144,6 +144,12 @@ transform: translate(-50% , -50%);
 
 }
 @media (max-width:800px) {
+<<<<<<< HEAD
+=======
+    .Shop{
+        margin: 0 !important;
+    }
+>>>>>>> 29edbc4e57c9c72f50633d27a3c36f3401a3ba6d
     .Shop .poster > div p{
     font-size:18px ;
 }
