@@ -126,7 +126,7 @@ export default function navbar() {
           <div className="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
             
 <div className='position-relative count'>
-  <span className="flex" style={{color:'red' , position:'absolute', width:'15px'  , height:'15px'  , backgroundColor:"red" , borderRadius:'50%'  , top:'0px' , right:'2px' , fontSize:'10px' , color:'white'}}>{cartLength}</span>
+  <span className="flex" style={{position:'absolute', width:'15px'  , height:'15px'  , backgroundColor:"red" , borderRadius:'50%'  , top:'0px' , right:'2px' , fontSize:'10px' , color:'white'}}>{cartLength}</span>
   <svg width="42" height="43" viewBox="0 0 42 43" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect y="0.5" width="42" height="42" rx="21" fill="#FFF1EE"/>
 <g clip-path="url(#clip0_1_7737)">
