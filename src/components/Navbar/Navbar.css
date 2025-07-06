@@ -13,7 +13,6 @@
 .NavPart-2 {
   height: 40px;
   border-bottom: 1px solid var(--opasty-color);
-  padding: 0 120px 1px 360px;
   padding: 0 130px 1px 130px;
 }
 .NavPart-2 .Part-left , a {
@@ -95,9 +94,6 @@
 .NavPart-4{
   padding: 30px 130px 0 130px;
 }
-.leftPart{
-  
-}
  .NavPart-4 .leftPart{
   border-radius: 50px;
   background-color: var(--main-color);
@@ -154,7 +150,7 @@
 
 
 .navbar a:hover {
-  color: #ccc;
+  color: var(--main-color);
 }
 @media (max-width: 767px) {
   .NavPart-1 {
@@ -205,6 +201,7 @@
   .navbar-nav li {
     margin-bottom: 5px;
   }
+
   .NavPart-4{
     padding: 1px 20px 0 20px;
     
@@ -239,7 +236,4 @@
     gap: 15px;
   }
 
-  .Part-right span {
-    font-size: 14px;
-  }
 }
