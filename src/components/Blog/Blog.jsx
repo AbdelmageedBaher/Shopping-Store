@@ -77,7 +77,7 @@ export default function Blog() {
   const tags = ["ecommerce", "food", "grocery", "klbtheme", "organic", "shop", "shopify", "store"];
 
   return (
-    <section className='Blog container py-5'>
+    <section className='Blog box-container py-5'>
       <div className="row">
         <div className="col-md-9">
           {blogs ? (blogs.map((blog) => (

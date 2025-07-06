@@ -6,6 +6,10 @@
     line-height: 24px; 
 
 } 
+.box-container{
+    width: 83%;
+    margin: auto;
+}
 .contact .sec-header p {
     max-width: 460px;
     padding-inline: 2.38px;

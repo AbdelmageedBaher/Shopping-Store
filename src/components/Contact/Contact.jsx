@@ -32,12 +32,12 @@ export default function Contact() {
 
         <div className='contact  '>
 
-          <section className="sec-header text-center container ">
+          <section className="sec-header text-center box-container ">
             <h1 className='fw-normal'>Get In Touch</h1>
             <p className='m-auto'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita quaerat unde quam dolor culpa veritatis inventore, aut commodi eum veniam vel.</p>
           </section>
           
-          <section className='cards text-center container pt-4 '>
+          <section className='cards text-center box-container pt-4 '>
             <div className="row g-4">
                   {card?.map((item) => (
                     <>
@@ -56,7 +56,7 @@ export default function Contact() {
           </section>
 
           <section className='information '>
-              <div className="container  ">
+              <div className="box-container ">
                 <div className="inner rounded-2 contact-border ">
                   <div className="info-header text-center mb-2 pb-5 contact-border border-top-0 border-start-0 border-end-0">
                     <h1 className='fw-normal'>Send Us</h1>
