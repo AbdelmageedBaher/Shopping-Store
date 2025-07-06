@@ -1,10 +1,8 @@
-// templates/component/Contact.js
+
 
 import React from 'react';
-import   './Contact.css';
-// import {FaMapMarkerAlt } from "react-icons/fa";
-// import { FiPhoneCall } from 'react-icons/fi';
-// import { MdOutlineMail } from 'react-icons/md';
+import   './contact.css';
+
 import location from "./../../icon/location.png"
 import call from "./../../icon/call.png"
 import message from "./../../icon/message.png"
