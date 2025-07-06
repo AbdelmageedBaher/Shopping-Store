@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Form, Alert, Spinner } from 'react-bootstrap';
+import { Helmet } from 'react-helmet';
 import { Link, useNavigate } from 'react-router-dom';
 
 function Register() {
@@ -54,6 +55,11 @@ function Register() {
 
   return (
     <div className="register-page d-flex justify-content-center align-items-center" style={{ minHeight: '100vh', background: '#f8f9fa' }}>
+      <Helmet>
+                <meta charSet="utf-8" />
+                <title>Register</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+          </Helmet>
       <div className="register-box shadow p-4 bg-white rounded" style={{ width: '450px' }}>
         <h3 className="mb-4 text-center">Create New Account</h3>
         {error && <Alert variant="danger">{error}</Alert>}

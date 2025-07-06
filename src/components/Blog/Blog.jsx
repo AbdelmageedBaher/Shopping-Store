@@ -10,6 +10,7 @@ import twitter from '../../assets/images/twitter.png';
 import reddit from '../../assets/images/reddit.png';
 import pinterest from '../../assets/images/pinterest.png';
 import happyHour from '../../assets/images/happyHour.png';
+import { Helmet } from 'react-helmet';
 
 
 
@@ -78,6 +79,11 @@ export default function Blog() {
 
   return (
     <section className='Blog box-container py-5'>
+      <Helmet>
+                <meta charSet="utf-8" />
+                <title>Blog</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+          </Helmet>
       <div className="row">
         <div className="col-md-9">
           {blogs ? (blogs.map((blog) => (

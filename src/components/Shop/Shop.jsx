@@ -7,6 +7,7 @@ import img2 from '../../assets/images/proster-shop.png';
 import useShop from '../../hooks/useShop';
 import Loading from '../Loading/Loading';
 import { CartContext } from '../../context/CartContext';
+import { Helmet } from 'react-helmet';
 
 function Shop() {
   const {
@@ -39,6 +40,11 @@ function Shop() {
 
   return (
     <div className='Shop mx-5 p-3'>
+      <Helmet>
+                <meta charSet="utf-8" />
+                <title>Shop</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       <div>
         <p className='m-0'>HOME <span><FaChevronRight className='m-0 p-0' /> PRODUCTS </span></p>
       </div>

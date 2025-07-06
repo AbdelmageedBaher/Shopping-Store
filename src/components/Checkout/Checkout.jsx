@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCreditCard} from '@fortawesome/free-solid-svg-icons';
 import OrderSummary from './OrderSummary';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 
 
@@ -18,6 +19,11 @@ export default function Checkout() {
     return(
 
         <div className='checkout_container '>
+          <Helmet>
+                <meta charSet="utf-8" />
+                <title>Checkout</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+          </Helmet>
       <Container>
       
        {/* Checkout Content */}

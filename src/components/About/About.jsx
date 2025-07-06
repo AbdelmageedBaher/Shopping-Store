@@ -1,11 +1,17 @@
 import React from "react";
 import "./About.css";
 import { Container, Row, Col, Image } from "react-bootstrap";
+import { Helmet } from "react-helmet";
 
 function About() {
   return (
     <>
-      <div className="About">        
+      <div className="About">  
+        <Helmet>
+                <meta charSet="utf-8" />
+                <title>About</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+          </Helmet>      
         <div className="hero-overlay">
           
           <h1>About for Bacola</h1>

@@ -6,6 +6,7 @@ import "./Categories.css";
 import Loading from "../Loading/Loading";
 import HeaderSlider from "./HeaderSlider/HeaderSlider";
 import { order } from "../purchaseOrder/Purchase-order";
+import { Helmet } from "react-helmet";
 
 export default function Categories() {
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -30,6 +31,11 @@ export default function Categories() {
 
   return (
     <>
+    <Helmet>
+                <meta charSet="utf-8" />
+                <title>Categories</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+    </Helmet>
     <HeaderSlider/>
     
     <div className="box-container my-4">
