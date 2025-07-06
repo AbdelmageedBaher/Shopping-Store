@@ -47,7 +47,7 @@ export default function Products() {
           return (
             <div
               key={product.id}
-              className="col-md-4 col-lg-3 col-6 border border-1 py-3 pointer-product"
+              className="col-md-4 col-lg-3 col-12 border border-1 py-3 pointer-product"
               onClick={handleProductClick}
             >
               <div>

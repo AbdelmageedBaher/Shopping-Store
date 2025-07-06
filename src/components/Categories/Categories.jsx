@@ -41,7 +41,7 @@ export default function Categories() {
     <div className="box-container my-4">
       <div className="row">
         {/* Sidebar */}
-        <div className="col-md-3 col-5">
+        <div className="col-md-3 col-12">
           <h4 className="text-capitalize font-bold fs-3 color-title py-2">
             Categories
           </h4>
@@ -68,7 +68,7 @@ export default function Categories() {
                         />
                     <label
                         style={{ cursor: "pointer" }}
-                      className={`form-check-label fw-semibold ${
+                      className={`form-check-label fw-md-semibold ${
                         isChecked ? "color-title" : "text-dark"
                       }`}
                     >
@@ -82,7 +82,7 @@ export default function Categories() {
         </div>
 
         {/* Products */}
-        <div className="col-md-9 col-7">
+        <div className="col-md-9 col-12">
           <h4 className="text-capitalize font-bold fs-3 color-title py-2">
             {selectedCategory
               ? `${selectedCategory.name} Products`
