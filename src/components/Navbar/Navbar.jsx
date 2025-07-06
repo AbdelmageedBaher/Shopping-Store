@@ -89,7 +89,6 @@ export default function navbar() {
         </div>
    <div className="login d-flex justify-content-evenly align-items-center gap-2">
           <Link to="/login">
-<<<<<<< HEAD
             <svg
               width="42"
               height="43"
@@ -170,18 +169,8 @@ export default function navbar() {
 </div>
 
 
-=======
-            <svg width="42" height="43"> {/* Icon here */}</svg>
-          </Link>
-          <h6 className="mb-0">${totallCart.toFixed(2)}</h6>
-          <div className="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-            <div className="position-relative count">
-              <span className="flex" style={{ position: "absolute", top: "0px", right: "2px", width: "15px", height: "15px", backgroundColor: "red", color: "white", borderRadius: "50%", fontSize: "10px" }}>{cartLength}</span>
-              <svg width="42" height="43"> {/* cart icon */} </svg>
-            </div>
-          </div>
+
         </div>
->>>>>>> 29edbc4e57c9c72f50633d27a3c36f3401a3ba6d
 
         {/* Cart Offcanvas */}
         <div className="offcanvas offcanvas-end" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
@@ -204,31 +193,6 @@ export default function navbar() {
             <div className="text-uppercase text-center mt-5 fs-5 alert alert-danger mx-4">There is No Products</div>
           )}
         </div>
-<<<<<<< HEAD
-
-        {/* Cart Offcanvas */}
-        <div className="offcanvas offcanvas-end" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-          <div className="offcanvas-header">
-            <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-          </div>
-          {cart.length ? (
-            <div className="offcanvas-body">
-              {showDataCart}
-              <hr />
-              <div className="d-flex justify-content-around border">
-                <b className="fs-4 m-0">totall:</b>
-                <p className="fs-5 m-0">${totallCart.toFixed(2)}</p>
-              </div>
-              <div>
-                <button className="btn btn-dark w-100 mt-4" onClick={() => navigate("/checkout")}>checkout</button>
-              </div>
-            </div>
-          ) : (
-            <div className="text-uppercase text-center mt-5 fs-5 alert alert-danger mx-4">There is No Products</div>
-          )}
-        </div>
-=======
->>>>>>> 29edbc4e57c9c72f50633d27a3c36f3401a3ba6d
       </Container>
 
       {/* NavPart-4 */}
