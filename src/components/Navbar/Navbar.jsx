@@ -157,7 +157,7 @@ export default function navbar() {
   <p className='fs-5 m-0'>${totallCart.toFixed(2)}</p>
 </div>
 <div>
-  <button className='btn btn-dark w-100 mt-4' onClick={()=> checkOutNav("/checkout")}>checkout</button>
+  <button className='btn btn-dark w-100 mt-4' onClick={()=> navigate("/checkout")}>checkout</button>
 
 </div>
   </div>
