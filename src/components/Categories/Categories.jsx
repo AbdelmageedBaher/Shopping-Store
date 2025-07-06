@@ -5,6 +5,8 @@ import StarRatings from "react-star-ratings";
 import "./Categories.css";
 import Loading from "../Loading/Loading";
 import HeaderSlider from "./HeaderSlider/HeaderSlider";
+import { order } from "../purchaseOrder/Purchase-order";
+
 export default function Categories() {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const {
@@ -20,6 +22,8 @@ export default function Categories() {
     }
   }, [categories, selectedCategory]);
 
+      const { handleClick } = order();
+
   if(productsLoading){
     return <Loading />
   }
@@ -28,7 +32,7 @@ export default function Categories() {
     <>
     <HeaderSlider/>
     
-    <div className="container my-4">
+    <div className="box-container my-4">
       <div className="row">
         {/* Sidebar */}
         <div className="col-md-3 col-5">
@@ -86,6 +90,7 @@ export default function Categories() {
               <div
                 key={product.id}
                 className="col-md-6 col-lg-4 col-12 border border-1 py-3 pointer-product"
+                onClick={() => handleClick(product)}
               >
                 <div>
                   <span className="px-2 py-1 rounded-1 color-discount text-white">

@@ -3,7 +3,7 @@ import imgDiscount2 from '../../assets/images/bacola-banner-06.jpg.png'
 import imgDiscount3 from '../../assets/images/bacola-banner-10.jpg.png'
 export default function WeekEndDiscount() {
   return (
-    <div className='container mx-auto py-3'>
+    <div className='box-container mx-auto py-3'>
         
         <div className='row'>
 

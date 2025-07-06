@@ -34,7 +34,7 @@ const Slider1 = () => {
           slidesPerView: 5,
         },
       }}
-      className="container my-3 border border-2 p-0 rounded-3"
+      className="box-container my-3 border border-2 p-0 rounded-3"
     >
       {data.slice(19, 30).map((prod) => (
         <SwiperSlide key={prod.id}>

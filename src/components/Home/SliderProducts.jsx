@@ -34,7 +34,7 @@ export default function SliderProducts() {
   };
 
   return (
-    <div className="container py-5 mx-auto d-none d-lg-block">
+    <div className="box-container py-5 mx-auto d-none d-lg-block">
       <Slider {...settings}>
         {data?.data?.products?.map((product) => {
           return (

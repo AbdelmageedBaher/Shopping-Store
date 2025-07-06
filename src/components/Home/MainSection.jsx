@@ -12,7 +12,7 @@ const MainSection = () => {
   }
 
   return (
-    <div className="container my-5">
+    <div className="box-container my-5">
       <div className="d-flex flex-wrap border border-danger border-3 rounded-3 p-3 gap-3">
         {data.slice(20, 25).map((prod) => (
           <div

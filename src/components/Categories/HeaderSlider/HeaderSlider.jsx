@@ -5,7 +5,7 @@ import imgSlider3 from "../../../assets/images/slider-image-3.png";
 import "./HeaderSlider.css";
 import { Link } from "react-router-dom";
 
-export default function HeaderSlider() {
+export default function  HeaderSlider() {
   let settings = {
     dots: true,
     infinite: true,
@@ -18,7 +18,7 @@ export default function HeaderSlider() {
   };
 
   return (
-    <div className="container d-xl-block d-none HeaderSlider">
+    <div className="box-container d-xl-block d-none HeaderSlider">
       <Slider {...settings}>
         <div className="position-relative">
           <img

@@ -8,7 +8,7 @@ import { FaArrowRight } from "react-icons/fa";
 
 
 
-export default function Products({ product }) {
+export default function Products() {
     let {data , isLoading} = useProducts()
     const { handleClick } = order();
 
@@ -18,7 +18,7 @@ export default function Products({ product }) {
 
   return (
     
-    <div className="container mx-auto py-2">
+    <div className="box-container mx-auto py-2">
       <div className="d-flex justify-content-between my-4">
         <div>
                 <h1 style={{ fontWeight: "400" }}>Best Sellers</h1>
@@ -42,7 +42,6 @@ export default function Products({ product }) {
       <div className="row">
         {data?.map((product) => {
           const handleProductClick = () => {
-            console.log("Clicked product:", product); //   
             handleClick(product);
           };
           return (
